@@ -1,35 +1,65 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static Define;
+
 public class AgentMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] 
+    private MovementDataSO _movementDataSO;
 
-    public UnityEvent<Vector2> OnMousePosChanged;
-    public Vector2 GetFloatMove()
+    private Rigidbody2D _rigidBody;
+
+    protected float _currentVelocity = 0;
+    protected Vector2 _movementDirection;
+
+    public UnityEvent<float> OnVelocityChange;
+
+    private void Awake()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector2 xy = new Vector2(x,y);
-        return xy;
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
-    public void Move()
+
+    public void MoveAgent(Vector2 moveInput)
     {
-        transform.Translate(GetFloatMove().normalized * Time.fixedDeltaTime * moveSpeed);
+        //Ű�� ���ȴ�
+        if(moveInput.sqrMagnitude > 0)
+        {
+            //magnitude�� ��Ʈ x sqrMangnitude
+            //�ݴ� ������ �ٶ���� ��
+            if(Vector2.Dot(moveInput,_movementDirection) < 0)
+            {
+                _currentVelocity = 0;
+            }
+            _movementDirection = moveInput.normalized;
+        }
+        _currentVelocity = CalculateSpeed(moveInput);
     }
-    public void GetPointerInput()
+
+    private float CalculateSpeed(Vector2 moveInput)
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 0;
-        Vector2 mouseInWordPos = Define.MainCam.ScreenToWorldPoint(mousePos);
-        OnMousePosChanged?.Invoke(mouseInWordPos);
+        if(moveInput.sqrMagnitude > 0)
+        {
+            _currentVelocity += _movementDataSO.acceleration * Time.deltaTime;
+
+        }
+        else
+        {
+            _currentVelocity -= _movementDataSO.deAcceleration * Time.deltaTime;
+
+        }
+        return Mathf.Clamp(_currentVelocity, 0, _movementDataSO.maxSpeed);
     }
+
     private void FixedUpdate()
     {
-        GetPointerInput();
-        GetFloatMove();
-        Move();
+        OnVelocityChange?.Invoke(_currentVelocity);
+        _rigidBody.velocity = _movementDirection * _currentVelocity;
     }
-}   
+    public void StopImmediately()
+    {
+        _currentVelocity = 0;
+        _rigidBody.velocity = Vector2.zero;
+    }
+}
