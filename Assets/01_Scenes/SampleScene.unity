@@ -197,6 +197,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnFireButtonPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1412791600}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1412791600}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: OnWaitShootingDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &38746278
 Transform:
   m_ObjectHideFlags: 0
@@ -2026,6 +2053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1412791599}
   - component: {fileID: 1412791598}
+  - component: {fileID: 1412791600}
   m_Layer: 0
   m_Name: WeaponParent
   m_TagString: Untagged
@@ -2062,6 +2090,19 @@ Transform:
   m_Father: {fileID: 38746278}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1412791600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412791597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40d0ab6d5353944e8d7b63624bbbf48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponDataSO: {fileID: 11400000, guid: 18fda5499cf7c0443a65ab56e379ab0b, type: 2}
 --- !u!1 &1435258590
 GameObject:
   m_ObjectHideFlags: 3
