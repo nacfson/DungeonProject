@@ -16,11 +16,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject _bar;
 
     [SerializeField] private ReloadGaugeUI _reloadGaugeUI;
+
+    private bool _isReloading;
     private int _maxAmmo;
     private void Start()
     {
         _reloadGaugeUI = GetComponentInChildren<ReloadGaugeUI>();
         _reloadGaugeUI.gameObject.SetActive(false);
+        _isReloading = true;
         _maxAmmo = _weaponDataSO.maxAmmo;
         StartCoroutine(WaitShootingDelay());
         StartCoroutine(Reloading());
@@ -35,7 +38,7 @@ public class Weapon : MonoBehaviour
         _maxAmmo -= 1;
     }
 
-    private void Reload()
+    private IEnumerator Reload()
     {
         _reloadGaugeUI.gameObject.SetActive(true);
         float time = 0f;
@@ -43,6 +46,7 @@ public class Weapon : MonoBehaviour
         {
             _reloadGaugeUI.ReloadGageNormal(time / _weaponDataSO.reloadTime);
             time += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -52,9 +56,10 @@ public class Weapon : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.R))
             {
-                Reload();
+                StartCoroutine(Reload());
                 yield return new WaitForSeconds(_weaponDataSO.reloadTime);
                 _maxAmmo = _weaponDataSO.maxAmmo;
+                _reloadGaugeUI.gameObject.SetActive(false);
             }
             yield return null;
         }
