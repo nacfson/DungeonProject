@@ -45,8 +45,12 @@ public class AgentInput : MonoBehaviour
             }
             else
             {
-                _fireButtonDown = false;
-                OnFireButtonPress?.Invoke();
+                if(_fireButtonDown == true)
+                {
+                    _fireButtonDown = false;
+
+                }
+                //OnFireButtonPress?.Invoke();
             }
         }
     }

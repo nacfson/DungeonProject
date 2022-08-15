@@ -6,12 +6,16 @@ public class AgentWeapon : MonoBehaviour
 {
     protected float _desireAngle;
     public WeaponRenderer _weaponRenderer;
+
+    protected bool _isReloading = false;
+    protected Weapon _weapon;
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     protected virtual void Awake()
     {
         _weaponRenderer = GetComponentInChildren<WeaponRenderer>();
+        _weapon = GetComponentInChildren<Weapon>();
     }
     public virtual void AimWeapon(Vector2 pointerPos)
     {
@@ -33,4 +37,5 @@ public class AgentWeapon : MonoBehaviour
         _weaponRenderer = GetComponentInChildren<WeaponRenderer>();
         //_weapon = GetComponentInChildren<Weapon>();
     }
+
 }

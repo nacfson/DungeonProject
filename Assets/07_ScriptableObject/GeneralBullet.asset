@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   reloadTime: 1
-  shootingDelay: 0.5
+  shootingDelay: 0.2
   bandongRange: 1
   speed: 7
+  maxAmmo: 6

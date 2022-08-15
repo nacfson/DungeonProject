@@ -9,7 +9,8 @@ public class WeaponDataSO : ScriptableObject
     public float reloadTime;
     public float shootingDelay;
     public float bandongRange;
-
     public int speed;
+
+    public int maxAmmo;
 
 }
