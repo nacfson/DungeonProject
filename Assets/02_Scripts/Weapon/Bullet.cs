@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Bullet : MonoBehaviour
 {
+    public WeaponDataSO BulletDataSO
+    {
+        get
+        {
+            return _bulletDataSO;
+        }
+    }
     [SerializeField] private WeaponDataSO _bulletDataSO;
     private Rigidbody2D _rigidBody;
 

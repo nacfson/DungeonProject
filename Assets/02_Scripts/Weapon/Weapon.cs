@@ -21,9 +21,9 @@ public class Weapon : MonoBehaviour
     private int _maxAmmo;
     private void Start()
     {
-        _reloadGaugeUI = GetComponentInChildren<ReloadGaugeUI>();
+        _reloadGaugeUI = GameObject.Find("ReloadGaugeUI").GetComponent<ReloadGaugeUI>();
         _reloadGaugeUI.gameObject.SetActive(false);
-        _isReloading = true;
+        _isReloading = false;
         _maxAmmo = _weaponDataSO.maxAmmo;
         StartCoroutine(WaitShootingDelay());
         StartCoroutine(Reloading());
@@ -44,20 +44,23 @@ public class Weapon : MonoBehaviour
         float time = 0f;
         while(time <= _weaponDataSO.reloadTime)
         {
+            _reloadGaugeUI.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.75f);
             _reloadGaugeUI.ReloadGageNormal(time / _weaponDataSO.reloadTime);
             time += Time.deltaTime;
             yield return null;
         }
     }
 
-    public IEnumerator Reloading()
+    IEnumerator Reloading()
     {
         while(true)
         {
-            if(Input.GetKey(KeyCode.R))
+            if(Input.GetKey(KeyCode.R) && _isReloading == false)
             {
                 StartCoroutine(Reload());
+                _isReloading = true;
                 yield return new WaitForSeconds(_weaponDataSO.reloadTime);
+                _isReloading = false;
                 _maxAmmo = _weaponDataSO.maxAmmo;
                 _reloadGaugeUI.gameObject.SetActive(false);
             }
@@ -65,13 +68,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public IEnumerator WaitShootingDelay()
+    IEnumerator WaitShootingDelay()
     {
         while(true)
         {
             if(Input.GetMouseButtonDown(0))
             {
-                if(_maxAmmo > 0 )
+                if(_maxAmmo > 0 && _isReloading == false)
                 {
                     ShootBullet();
                     yield return new WaitForSeconds(_weaponDataSO.shootingDelay);
