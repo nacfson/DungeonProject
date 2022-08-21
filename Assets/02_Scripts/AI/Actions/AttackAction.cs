@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class AttackAction : AIAction
 {
-
-
+    private EnemyAttack _enemyAttack;
     public override void TakeAction()
     {
         _aiMovementData.direction = Vector2.zero;
-        if(_aiActionData.isAttack == false)
+        if (_aiActionData.isAttack == false)
         {
-            _enemyAIBrain.Attack();
-            _aiMovementData.pointOfInterest = _enemyAIBrain.Target.position;
+            _brain.Attack();
+            _aiMovementData.pointOfInterest = _brain.Target.position;
         }
-        _enemyAIBrain.Move(_aiMovementData.direction, _aiMovementData.pointOfInterest);
+        _brain.Move(_aiMovementData.direction,_aiMovementData.pointOfInterest);
     }
-
-
 }

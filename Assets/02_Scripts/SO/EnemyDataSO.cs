@@ -23,4 +23,6 @@ public class EnemyDataSO : ScriptableObject
     public int damage;
     public float viewDistance;
     public float attackDistance;
+
+    public float attackDelay;
 }

@@ -10,11 +10,11 @@ public class ChaseAction : AIAction
         {
             _aiActionData.isAttack = false;
         }
-        Vector2 direction = _enemyAIBrain.Target.position - transform.position;
+        Vector2 direction = _brain.Target.position - transform.position;
         _aiMovementData.direction = direction.normalized;
-        _aiMovementData.pointOfInterest = _enemyAIBrain.Target.position;
-        //ÇöÀç °ø°ÝÁßÀÌÁö ¾Ê´Ù¸é ÀÌµ¿ °¡´É
+        _aiMovementData.pointOfInterest = _brain.Target.position;
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        _enemyAIBrain.Move(direction.normalized, _enemyAIBrain.Target.position);
+        _brain.Move(direction.normalized, _brain.Target.position);
     }
 }
