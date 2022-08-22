@@ -17,7 +17,6 @@ public class Player : MonoBehaviour, IHittable, IAgent
         set
         {
             _health = Mathf.Clamp(value, 0,_maxHealth);
-            OnUpdateHealthUI?.Invoke(_health);
         }
     }
     [SerializeField]
@@ -25,6 +24,9 @@ public class Player : MonoBehaviour, IHittable, IAgent
     #endregion
 
     public bool IsEnemy => false;
+
+    [SerializeField]
+    private PlayerHeartUI _playerHeartUI;
 
     [field : SerializeField] public UnityEvent OnDie { get; set; }
     [field : SerializeField] public UnityEvent OnGetHit { get; set; }
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour, IHittable, IAgent
         if (_isDead) return;
         Health -= damage;
         StartCoroutine(ChangeColorCoroutine());
-        OnUpdateHealthUI?.Invoke(Health);
+        _playerHeartUI.GetDamage(damage);
         if(Health <= 0)
         {
             OnDie?.Invoke();
@@ -59,5 +61,9 @@ public class Player : MonoBehaviour, IHittable, IAgent
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
