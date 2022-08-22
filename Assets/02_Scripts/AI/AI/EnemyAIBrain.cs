@@ -33,16 +33,20 @@ public class EnemyAIBrain : MonoBehaviour
             return _enemy;
         }
     }
+    public GameManager gameManager;
 
     protected virtual void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
         _aiMovementData = transform.Find("AI").GetComponent<AIMovementData>();
         _basePosition = transform.Find("BasePosition");
         _enemy = GetComponent<Enemy>();
     }
+    
     protected virtual void Start()
     {
+        _target = gameManager.Player;
         //_target = GameManager.Instance.Player;
     }
 

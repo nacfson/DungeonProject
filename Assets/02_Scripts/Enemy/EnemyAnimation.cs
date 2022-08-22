@@ -12,7 +12,6 @@ public class EnemyAnimation : AgentAnimation
     protected readonly int _attackHash = Animator.StringToHash("isAttack");
     protected readonly int _deathBoolHash = Animator.StringToHash("IsDead");
 
-    
 
     protected override void Awake()
     {
@@ -44,6 +43,10 @@ public class EnemyAnimation : AgentAnimation
     }
 
     public void EndOfDeadAnimation()
+    {
+        _enemyAIBrain.Enemy.Die();
+    }
+    public void Enemy1DeadAnimation()
     {
         _enemyAIBrain.Enemy.Die();
     }

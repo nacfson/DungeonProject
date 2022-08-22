@@ -18,3 +18,4 @@ MonoBehaviour:
   damage: 1
   viewDistance: 5
   attackDistance: 1
+  attackDelay: 1

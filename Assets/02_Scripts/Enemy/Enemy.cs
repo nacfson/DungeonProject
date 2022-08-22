@@ -13,6 +13,13 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
             return _enemyDataSO;
         }
     }
+    public bool IsDead
+    {
+        get
+        {
+            return _isDead;
+        }
+    }
 
     public bool IsEnemy => true;
 
@@ -34,20 +41,25 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
     protected EnemyAIBrain _enemyBrain;
     protected EnemyAttack _enemyAttack;
 
+    protected Collider2D _collider;
+    
+    private Animator _animator;
+    public PopupText popupText;
+
     private void Awake()
     {
+        _collider = GetComponent<Collider2D>();
+        _collider.enabled = true;
+        _isDead = false;
+        _isActive = true;
         hp = _enemyDataSO.maxHP;
         _enemyBrain = GetComponent<EnemyAIBrain>();
         _enemyAttack = GetComponent<EnemyAttack>();
         _enemyAttack.AttackDelay = _enemyDataSO.attackDelay;
+        _animator = GetComponentInChildren<Animator>();
     }
 
-    public void PerformAttack()
-    {
-        if (_isDead == false)
-        {
-        }
-    }
+
     private void SetEnemyData()
     {
                 _enemyAttack.AttackDelay = _enemyDataSO.attackDelay; //?????????? ????
@@ -65,18 +77,9 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
         Health = _enemyDataSO.maxHP;
     }
 
-    private void Update()
-    {
-        DieCheck();
-    }
 
-    private void DieCheck()
-    {
-        if (hp <= 0)
-        {
-            OnDie?.Invoke();
-        }
-    }
+
+
     public virtual void PerformAttack(int damage)
     {
         if(_isDead == false && _isActive == true)
@@ -92,19 +95,28 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
 
     public void GetHit(int damage, GameObject damageDealer)
     {
-        if(_isDead == false) return;
-        Health -= damage;
+        if (_isDead == true) return;
+
+
+
+        //hp -= damage;
         HitPoint = damageDealer.transform.position;
 
-        if(Health<=0)
+
+        
+
+        OnGetHit?.Invoke();
+        if(hp <= 0)
         {
             DeadProcess();
         }
     }
-
-    private void DeadProcess()
+///Enemy가 죽었을때 실행되는 프로세스
+    public void DeadProcess()
     {
         Health = 0;
         _isDead = true;
+        _animator.SetBool("isDead",true);
+        _collider.enabled = false;
     }
 }

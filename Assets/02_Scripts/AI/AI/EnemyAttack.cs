@@ -8,6 +8,8 @@ public abstract class EnemyAttack : MonoBehaviour
     protected EnemyAIBrain _enemyAIBrain;
 
     public UnityEvent AttackFeedBack;
+    [SerializeField]
+    protected GameObject _playerHitText;
 
     [SerializeField] protected float _attackDelay;
     public float AttackDelay
@@ -18,7 +20,7 @@ public abstract class EnemyAttack : MonoBehaviour
         }
         set
         {
-            _attackDelay = Mathf.Clamp(value, 0.1f, 10f);
+            //_attackDelay = Mathf.Clamp(value, 0.1f, 10f);
         }
     }
     protected bool _waitBeforeNextAttack;
@@ -33,7 +35,7 @@ public abstract class EnemyAttack : MonoBehaviour
     protected virtual void Awake()
     {
         _enemyAIBrain = GetComponent<EnemyAIBrain>();
-
+        _attackDelay = _enemyAIBrain.EnemyDataSo.attackDelay;
     }
 
     public abstract void Attack(int damage);
@@ -44,5 +46,7 @@ public abstract class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(_attackDelay);
         _waitBeforeNextAttack = false;
     }
+
+
 
 }

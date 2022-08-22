@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PoolManager
+public class PooolManager
 {
     public static Dictionary<string, object> pool = new Dictionary<string, object>();
     public static Dictionary<string, GameObject> prefabDictionary = new Dictionary<string, GameObject>();
