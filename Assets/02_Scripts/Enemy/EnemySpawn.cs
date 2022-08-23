@@ -8,6 +8,9 @@ public class EnemySpawn : MonoBehaviour
     private GameObject _enemy1;
 
     [SerializeField]
+    private GameObject _enemy2;
+
+    [SerializeField]
     private MapSO _mapSO;
     
     int minCount;
@@ -16,34 +19,29 @@ public class EnemySpawn : MonoBehaviour
     float spawnDelay;
 
     Vector3 _randomSpawnPos;
-    /// <summary>
-    /// Awake is called when the script instance is being loaded.
-    /// </summary>
+
     private void Awake()
     {
         minCount = 0;
         maxCount = 3;
         spawnDelay = 1f;
     }
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
+
     private void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemy2());
+        StartCoroutine(SpawnEnemy1());
+
     }
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(SpawnEnemy());
+            StartCoroutine(SpawnEnemy2());
         }
     }
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy1()
     {
         minCount = 0;
         while(minCount < maxCount)
@@ -53,7 +51,19 @@ public class EnemySpawn : MonoBehaviour
             minCount ++;
             yield return new WaitForSeconds(spawnDelay);
         }
-    }    
+    }
+    IEnumerator SpawnEnemy2()
+    {
+        int minCount = 0;
+        int maxCount  = 1;
+        while(minCount < maxCount)
+        {
+            SetSpawnPos();
+            Instantiate(_enemy2, _randomSpawnPos, Quaternion.identity);
+            minCount ++;
+            yield return new WaitForSeconds(1f);
+        }
+    }
     private void SetSpawnPos()
     {
         _randomSpawnPos = new Vector3

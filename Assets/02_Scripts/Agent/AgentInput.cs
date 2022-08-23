@@ -10,7 +10,9 @@ public class AgentInput : MonoBehaviour
     public UnityEvent<Vector2> OnMousePosChanged;
     public UnityEvent OnFireButtonPress;
 
-    private bool _fireButtonDown;
+    public UnityEvent OnFireButtonRelease;
+
+    private bool _fireButtonDown = false;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -36,7 +38,7 @@ public class AgentInput : MonoBehaviour
 
     private void GetFireInput()
     {
-        if(Input.GetAxisRaw("Fire1") > 0 )
+        if(Input.GetKey(KeyCode.Mouse0))
         {
             if(_fireButtonDown == false)
             {
@@ -48,9 +50,10 @@ public class AgentInput : MonoBehaviour
                 if(_fireButtonDown == true)
                 {
                     _fireButtonDown = false;
+                    OnFireButtonRelease?.Invoke();
+
 
                 }
-                //OnFireButtonPress?.Invoke();
             }
         }
     }

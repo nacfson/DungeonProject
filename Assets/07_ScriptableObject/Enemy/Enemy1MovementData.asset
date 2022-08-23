@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2dcee0e5719c14ab6705fef0635cc6, type: 3}
-  m_Name: EnemyData
+  m_Script: {fileID: 11500000, guid: 4c730618750ec1a4e8b31a060f24743f, type: 3}
+  m_Name: Enemy1MovementData
   m_EditorClassIdentifier: 
-  maxHP: 5
-  accleration: 40
-  deAccleration: 40
-  damage: 1
-  viewDistance: 5
-  attackDistance: 1
-  attackDelay: 1
+  maxSpeed: 2
+  acceleration: 50
+  deAcceleration: 50

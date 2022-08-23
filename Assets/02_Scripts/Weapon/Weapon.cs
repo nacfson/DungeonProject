@@ -23,6 +23,10 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private ReloadGaugeUI _reloadGaugeUI;
 
+    public UnityEvent OnShootNoAmmo;
+
+    private bool _isShooting = true;
+
 
     private bool _isReloading;
     private int _maxAmmo;
@@ -43,6 +47,11 @@ public class Weapon : MonoBehaviour
             _weaponSwap.WeaponActive();
 
                 break;
+            case 2:
+            _weaponDataSO = _weaponSwap.shotGunSO;
+            _muzzle = _weaponSwap.shotGun.transform.Find("Muzzle").gameObject;
+            _weaponSwap.WeaponActive();
+                break;
             default:
                 Debug.LogError("SO가 존재하지 않습니다.");
                 break;
@@ -56,17 +65,22 @@ public class Weapon : MonoBehaviour
         _reloadGaugeUI = GameObject.Find("ReloadGaugeUI").GetComponent<ReloadGaugeUI>();
         _reloadGaugeUI.gameObject.SetActive(false);
         _isReloading = false;
-        StartCoroutine(WaitShootingDelay());
         StartCoroutine(Reloading());
     }
 
 
     public void ShootBullet()
     {
-        GameObject obj  = Instantiate(_circle, transform.position, Quaternion.identity);
-        obj.transform.rotation = transform.rotation;
-        obj.transform.SetParent(null);
+        for(int i= 0; i<_weaponDataSO.burstCount; i++)
+        {
+            Vector2 pos = new Vector2(transform.position.x,transform.position.y);
+            GameObject obj  = Instantiate(_circle, pos, Quaternion.identity);
+            obj.transform.rotation = transform.rotation;
+            obj.transform.SetParent(null);
+        }
         _weaponSwap.UseAmmo();
+
+
     }
 
     private IEnumerator Reload()
@@ -86,7 +100,7 @@ public class Weapon : MonoBehaviour
     {
         while(true)
         {
-            if(Input.GetKey(KeyCode.R) && _isReloading == false)
+            if(Input.GetKeyDown(KeyCode.R) && _isReloading == false)
             {
                 StartCoroutine(Reload());
                 _isReloading = true;
@@ -100,20 +114,49 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    IEnumerator WaitShootingDelay()
+    public void OnShootEvent()
     {
-        while(true)
+        if(Input.GetKey(KeyCode.Mouse0))
         {
-            if(Input.GetMouseButtonDown(0))
+            _isShooting = true;
+            if(_isShooting == true && _isReloading == false)
             {
-                if(_weaponSwap.WeaponAmmo() > 0 && _isReloading == false)
+                if(_weaponSwap.WeaponAmmo() > 0 )
                 {
                     ShootBullet();
-                    yield return new WaitForSeconds(_weaponDataSO.shootingDelay);
+                    OnShoot?.Invoke();
+                    StartCoroutine(WaitShootingDelay());
                 }
+                else
+                {
+                    _isShooting = false;
+                    OnShootNoAmmo?.Invoke();
+                    return;
+                }
+                FinishShooting();
 
             }
-            yield return null;
         }
+    }
+
+    private void Update()
+    {
+        OnShootEvent();
+    }
+    protected void FinishShooting()
+    {
+        StartCoroutine(WaitShootingDelay());
+        if(_weaponDataSO.automaticFire == false)
+        {
+            _isShooting = false;
+        }
+    }
+
+    public IEnumerator WaitShootingDelay()
+    {
+        _isReloading = true;
+        yield return new WaitForSeconds(_weaponDataSO.shootingDelay);
+        _isReloading = false;
+        
     }
 }

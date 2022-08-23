@@ -931,6 +931,7 @@ MonoBehaviour:
   _enemyDataSO: {fileID: 11400000, guid: 9f5c16672de0e324abfc58238dea38bc, type: 2}
   _target: {fileID: 0}
   gameManager: {fileID: 0}
+  _basePosition: {fileID: 6624719106914607095}
 --- !u!114 &6624719107999122668
 MonoBehaviour:
   m_ObjectHideFlags: 0

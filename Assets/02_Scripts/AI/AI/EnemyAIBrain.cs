@@ -40,7 +40,6 @@ public class EnemyAIBrain : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
         _aiMovementData = transform.Find("AI").GetComponent<AIMovementData>();
-        _basePosition = transform.Find("BasePosition");
 
         _enemy = GetComponent<Enemy>();
     }
@@ -51,6 +50,7 @@ public class EnemyAIBrain : MonoBehaviour
         //_target = GameManager.Instance.Player;
     }
 
+    [SerializeField]
     private Transform _basePosition;
     public Transform BasePosition
     {

@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: _mapSO
       value: 
       objectReference: {fileID: 11400000, guid: bab961d2879617c42afd38c7feae1d1b, type: 2}
+    - target: {fileID: 1984719474488551189, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
+      propertyPath: _enemy2
+      value: 
+      objectReference: {fileID: 1175101965770260246, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}
     - target: {fileID: 1984719474488551274, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
       propertyPath: m_Name
       value: LeftSideSpawner
@@ -1886,6 +1890,10 @@ PrefabInstance:
       propertyPath: _mapSO
       value: 
       objectReference: {fileID: 11400000, guid: d926b2e7e4220ba489d5ee9d333febaf, type: 2}
+    - target: {fileID: 1984719474488551189, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
+      propertyPath: _enemy2
+      value: 
+      objectReference: {fileID: 1175101965770260246, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}
     - target: {fileID: 1984719474488551274, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
       propertyPath: m_Name
       value: BottomSpawner
@@ -5288,6 +5296,10 @@ PrefabInstance:
       propertyPath: _mapSO
       value: 
       objectReference: {fileID: 11400000, guid: c01ebf654b2687f499cb0660be2b54d2, type: 2}
+    - target: {fileID: 1984719474488551189, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
+      propertyPath: _enemy2
+      value: 
+      objectReference: {fileID: 1175101965770260246, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}
     - target: {fileID: 1984719474488551274, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
       propertyPath: m_Name
       value: RightSideSpawner
@@ -5340,7 +5352,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9208633, y: 1}
+    m_SensorSize: {x: 1.9071429, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5625,6 +5637,10 @@ PrefabInstance:
       propertyPath: _mapSO
       value: 
       objectReference: {fileID: 11400000, guid: 7c18ab50f85b39f4c957752dfdfc8493, type: 2}
+    - target: {fileID: 1984719474488551189, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
+      propertyPath: _enemy2
+      value: 
+      objectReference: {fileID: 1175101965770260246, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}
     - target: {fileID: 1984719474488551274, guid: cf74d306782ba2d4d9df5b98e9d3879f, type: 3}
       propertyPath: m_Name
       value: TopSpawner

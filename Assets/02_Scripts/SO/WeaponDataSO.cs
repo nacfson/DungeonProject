@@ -13,4 +13,8 @@ public class WeaponDataSO : ScriptableObject
 
     public int maxAmmo;
 
+    public int burstCount;
+
+    public bool automaticFire;
+
 }

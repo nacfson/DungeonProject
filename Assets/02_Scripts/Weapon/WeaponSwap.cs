@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class WeaponSwap : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class WeaponSwap : MonoBehaviour
 
     public WeaponDataSO revolverSO;
     public WeaponDataSO ak47SO;
+    public WeaponDataSO shotGunSO;
 #endregion
 
 #region 무기 오브젝트
     public GameObject revolver;
     public GameObject ak47;
+
+    public GameObject shotGun;
 #endregion
     [SerializeField]
     private WeaponAmmoSO _weaponAmmoSO;
@@ -22,6 +26,8 @@ public class WeaponSwap : MonoBehaviour
     [SerializeField]
     private int maxWeaponCount;
     public int weaponCount;
+
+    private FlashLightFeedBack _flashLightFeedBack;
 
     public List<GameObject> weaponList = new List<GameObject>();
 
@@ -33,6 +39,8 @@ public class WeaponSwap : MonoBehaviour
         WeaponActive();
         _weaponAmmoSO.weapon1Ammo = revolverSO.maxAmmo;
         _weaponAmmoSO.weapon2Ammo = ak47SO.maxAmmo;
+        _weaponAmmoSO.weapon3Ammo = shotGunSO.maxAmmo;
+        _flashLightFeedBack = GetComponentInChildren<FlashLightFeedBack>();
     }
 
     public void UseAmmo()
@@ -44,6 +52,9 @@ public class WeaponSwap : MonoBehaviour
                 break;
             case 1:
                 _weaponAmmoSO.weapon2Ammo -= 1;
+                break;
+            case 2:
+                _weaponAmmoSO.weapon3Ammo -=1;
                 break;
         }
     }
@@ -58,6 +69,10 @@ public class WeaponSwap : MonoBehaviour
             case 1:
                 _weaponAmmoSO.weapon2Ammo = ak47SO.maxAmmo;
                 break;
+            case 2:
+                _weaponAmmoSO.weapon3Ammo = shotGunSO.maxAmmo;
+                break;
+
 
         }
     }
@@ -73,6 +88,9 @@ public class WeaponSwap : MonoBehaviour
             case 1:
             returnValue = _weaponAmmoSO.weapon2Ammo;
                 break;
+            case 2:
+            returnValue = _weaponAmmoSO.weapon3Ammo;
+            break;
 
         }
         return returnValue;
@@ -93,6 +111,7 @@ public class WeaponSwap : MonoBehaviour
         }
         _weapon.SwapWeapon(weaponCount);
         WeaponActive();
+        _flashLightFeedBack.lightTarget = weaponList[weaponCount].gameObject.transform.Find("Muzzle").GetComponent<Light2D>();
     }
 
     private void Update()
