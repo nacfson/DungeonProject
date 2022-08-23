@@ -29,7 +29,7 @@ public class PlayerHeartUI : MonoBehaviour
 
     public void Heal()
     {
-        _heartList[_player.Health - 1].sprite = _fullHeart;
+        _heartList[_player.Health].sprite = _fullHeart;
         _player.Health += 1;
     }
 

@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
 
     public Vector3 HitPoint {get; private set;}
 
+    private EnemyItemDrop _enemyItemDrop;
+
     public int Health {get; private set;}
 
     [field:SerializeField]
@@ -57,6 +59,7 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
         _enemyAttack = GetComponent<EnemyAttack>();
         _enemyAttack.AttackDelay = _enemyDataSO.attackDelay;
         _animator = GetComponentInChildren<Animator>();
+        _enemyItemDrop = GetComponent<EnemyItemDrop>();
     }
 
 
@@ -114,6 +117,7 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
 ///Enemy가 죽었을때 실행되는 프로세스
     public void DeadProcess()
     {
+        _enemyItemDrop.DropItem();
         Health = 0;
         _isDead = true;
         _animator.SetBool("isDead",true);

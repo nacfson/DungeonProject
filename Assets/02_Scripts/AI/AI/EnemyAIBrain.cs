@@ -41,6 +41,7 @@ public class EnemyAIBrain : MonoBehaviour
         _aiActionData = transform.Find("AI").GetComponent<AIActionData>();
         _aiMovementData = transform.Find("AI").GetComponent<AIMovementData>();
         _basePosition = transform.Find("BasePosition");
+
         _enemy = GetComponent<Enemy>();
     }
     

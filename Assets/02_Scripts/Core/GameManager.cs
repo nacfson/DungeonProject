@@ -7,4 +7,8 @@ public class GameManager : MonoBehaviour
     public Transform Player { get => _player; }
     [SerializeField]
     private Transform _player;
+
+
+    public Player player;
+
 }
