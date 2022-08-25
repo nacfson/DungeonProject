@@ -5,5 +5,7 @@ using UnityEngine;
 public class AIActionData : MonoBehaviour
 {
     public bool isAttack;
-    public bool isChase;
+    public bool targetSpotted;
+
+    public bool arrived;
 }

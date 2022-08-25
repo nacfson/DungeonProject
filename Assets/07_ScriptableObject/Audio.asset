@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7744507cd5923dd4c8cab5aeef6eebce, type: 3}
+  m_Name: Audio
+  m_EditorClassIdentifier: 
+  ak47Shoot: {fileID: 8300000, guid: 1b145bcffd767854fb0c71c37678ebaa, type: 3}
+  ak47Reload: {fileID: 8300000, guid: e1d79f4a0c7873742babc5f6e9ff800e, type: 3}
+  shotGunShoot: {fileID: 8300000, guid: fecc3e7a0166a104cb810435f6fdf37b, type: 3}
+  shotGunReload: {fileID: 8300000, guid: af63539a5e39c99489395bdea2471f60, type: 3}
+  revolverShoot: {fileID: 8300000, guid: be64544bade297e4d872dd74c66256d2, type: 3}
+  revolverReload: {fileID: 8300000, guid: 406c929b7299afb469c82778f8d15d5b, type: 3}

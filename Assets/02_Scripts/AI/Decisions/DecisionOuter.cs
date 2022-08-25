@@ -7,7 +7,7 @@ public class DecisionOuter : AIDecision
     [SerializeField]
 
     [Range(0.1f, 30f)]
-    private float _distance = 5f;
+    private float _distance = 0.8f;
 
     public float Distance
     {
@@ -17,7 +17,7 @@ public class DecisionOuter : AIDecision
         }
         set
         {
-            _distance = Mathf.Clamp(value, 0.1f, 30f);
+            //_distance = Mathf.Clamp(value, 0.1f, 30f);
         }
     }
 

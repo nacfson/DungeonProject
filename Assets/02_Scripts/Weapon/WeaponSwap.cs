@@ -23,6 +23,11 @@ public class WeaponSwap : MonoBehaviour
     [SerializeField]
     private WeaponAmmoSO _weaponAmmoSO;
 
+    
+    public WeaponPanelSO weaponPanelSO;
+
+
+
     [SerializeField]
     private int maxWeaponCount;
     public int weaponCount;
@@ -30,6 +35,7 @@ public class WeaponSwap : MonoBehaviour
     private FlashLightFeedBack _flashLightFeedBack;
 
     public List<GameObject> weaponList = new List<GameObject>();
+
 
 
 
@@ -49,12 +55,17 @@ public class WeaponSwap : MonoBehaviour
         {
             case 0:
                 _weaponAmmoSO.weapon1Ammo -= 1;
+                _weapon.SwapWeapon(weaponCount);
                 break;
             case 1:
                 _weaponAmmoSO.weapon2Ammo -= 1;
+                _weapon.SwapWeapon(weaponCount);
+
                 break;
             case 2:
                 _weaponAmmoSO.weapon3Ammo -=1;
+                _weapon.SwapWeapon(weaponCount);
+
                 break;
         }
     }
@@ -65,12 +76,16 @@ public class WeaponSwap : MonoBehaviour
         {
             case 0:
                 _weaponAmmoSO.weapon1Ammo = revolverSO.maxAmmo;
+                _weapon.SwapWeapon(weaponCount);
                 break;
             case 1:
                 _weaponAmmoSO.weapon2Ammo = ak47SO.maxAmmo;
+                _weapon.SwapWeapon(weaponCount);
+
                 break;
             case 2:
                 _weaponAmmoSO.weapon3Ammo = shotGunSO.maxAmmo;
+                _weapon.SwapWeapon(weaponCount);
                 break;
 
 
@@ -108,10 +123,11 @@ public class WeaponSwap : MonoBehaviour
             {
                 weaponCount++;
             }
+            _weapon.SwapWeapon(weaponCount);
+            WeaponActive();
+            _flashLightFeedBack.lightTarget = weaponList[weaponCount].gameObject.transform.Find("Muzzle").GetComponent<Light2D>();
         }
-        _weapon.SwapWeapon(weaponCount);
-        WeaponActive();
-        _flashLightFeedBack.lightTarget = weaponList[weaponCount].gameObject.transform.Find("Muzzle").GetComponent<Light2D>();
+
     }
 
     private void Update()

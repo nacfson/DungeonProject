@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: 
   damage: 1
-  reloadTime: 2
-  shootingDelay: 0.1
-  bandongRange: 1
-  speed: 7
-  maxAmmo: 30
+  reloadTime: 3
+  shootingDelay: 1
+  bandongRange: 5
+  speed: 5
+  maxAmmo: 2
+  burstCount: 3
+  automaticFire: 0
+  sprite: {fileID: 0}

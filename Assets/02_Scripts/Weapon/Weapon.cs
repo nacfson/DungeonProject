@@ -1,23 +1,30 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
+using TMPro;
 public class Weapon : MonoBehaviour
 {
-
+    [SerializeField]
+    private AudioSO _audioSO;
+    [SerializeField]
+    private WeaponAudio _weaponAudio;
 
     public UnityEvent OnShoot;
     [SerializeField]
     private GameObject _muzzle;
     [SerializeField]
-    private GameObject _circle;
-    [SerializeField]
-    private WeaponSwap _weaponSwap;
+    private GameObject _bullet;
+    public WeaponSwap weaponSwap;
+
 
     [SerializeField]
-    private WeaponDataSO _weaponDataSO;
+    public WeaponDataSO weaponDataSO;
 
     [SerializeField] private GameObject _bar;
 
@@ -30,55 +37,92 @@ public class Weapon : MonoBehaviour
 
     private bool _isReloading;
     private int _maxAmmo;
+    [SerializeField]
+    private PanelAnimation _panelAnimation;
+    [SerializeField]
+    private GunPanel _gunPanel;
+
+    [SerializeField] private float time = 1.0f;
+    public int rotationValue;
 
     public void SwapWeapon(int weaponCount)
     {
         switch(weaponCount)
         {
             case 0:
-            _weaponDataSO = _weaponSwap.revolverSO;
-            _muzzle = _weaponSwap.revolver.transform.Find("Muzzle").gameObject;
-            _weaponSwap.WeaponActive();
+
+
+            _weaponAudio.SetAudioClip(_audioSO.revolverShoot,_audioSO.revolverReload,_audioSO.revolverShoot);
+            weaponDataSO = weaponSwap.revolverSO;
+            _muzzle = weaponSwap.revolver.transform.Find("Muzzle").gameObject;
+            _bullet = weaponSwap.revolver.GetComponent<WeaponBullet>().myBullet;
+            _gunPanel.revolverPanel.transform.Find("GunImage").GetComponent<Image>().sprite = _gunPanel.revolverSprite;
+            _gunPanel.revolverPanel.transform.Find("RemainBullet").GetComponent<TextMeshProUGUI>().text = weaponSwap.WeaponAmmo() + " / " + weaponSwap.revolverSO.maxAmmo;
+            SwapProcess();
 
                 break;
             case 1:
-            _weaponDataSO = _weaponSwap.ak47SO;
-            _muzzle = _weaponSwap.ak47.transform.Find("Muzzle").gameObject;
-            _weaponSwap.WeaponActive();
+
+
+            _weaponAudio.SetAudioClip(_audioSO.ak47Shoot,_audioSO.ak47Reload,_audioSO.ak47Shoot);
+
+            weaponDataSO = weaponSwap.ak47SO;
+            _muzzle = weaponSwap.ak47.transform.Find("Muzzle").gameObject;
+            _bullet = weaponSwap.ak47.GetComponent<WeaponBullet>().myBullet;
+            _gunPanel.revolverPanel.transform.Find("GunImage").GetComponent<Image>().sprite = _gunPanel.ak47Sprite;
+            _gunPanel.revolverPanel.transform.Find("RemainBullet").GetComponent<TextMeshProUGUI>().text = weaponSwap.WeaponAmmo() + " / " + weaponSwap.ak47SO.maxAmmo;
+            SwapProcess();
+
 
                 break;
             case 2:
-            _weaponDataSO = _weaponSwap.shotGunSO;
-            _muzzle = _weaponSwap.shotGun.transform.Find("Muzzle").gameObject;
-            _weaponSwap.WeaponActive();
+
+            _weaponAudio.SetAudioClip(_audioSO.shotGunShoot,_audioSO.shotGunReload,_audioSO.shotGunShoot);
+            weaponDataSO = weaponSwap.shotGunSO;
+            _muzzle = weaponSwap.shotGun.transform.Find("Muzzle").gameObject;
+            _bullet = weaponSwap.shotGun.GetComponent<WeaponBullet>().myBullet;
+            _gunPanel.revolverPanel.transform.Find("GunImage").GetComponent<Image>().sprite = _gunPanel.shotGunSprite;
+            _gunPanel.revolverPanel.transform.Find("RemainBullet").GetComponent<TextMeshProUGUI>().text = weaponSwap.WeaponAmmo() + " / " + weaponSwap.shotGunSO.maxAmmo;
+            SwapProcess();
                 break;
+
             default:
                 Debug.LogError("SO가 존재하지 않습니다.");
                 break;
         }
+        
+
+    }
+    private void SwapProcess()
+    {
+        StopAllCoroutines();
+        _reloadGaugeUI.gameObject.SetActive(false);
+        _isReloading = false;
+                   _gunPanel.PanelActiveTrue();
+        //_panelAnimation.Animation(_gunPanel.revolverPanel);
+        weaponSwap.WeaponActive();
     }
 
 
-    private void Start()
+    private void Awake()
     {
-        SwapWeapon(1);
-        _reloadGaugeUI = GameObject.Find("ReloadGaugeUI").GetComponent<ReloadGaugeUI>();
-        _reloadGaugeUI.gameObject.SetActive(false);
+        SwapWeapon(0);
+        //_reloadGaugeUI = GameObject.Find("ReloadGaugeUI").GetComponent<ReloadGaugeUI>();
+        //_reloadGaugeUI.gameObject.SetActive(false);
         _isReloading = false;
-        StartCoroutine(Reloading());
     }
 
 
     public void ShootBullet()
     {
-        for(int i= 0; i<_weaponDataSO.burstCount; i++)
-        {
-            Vector2 pos = new Vector2(transform.position.x,transform.position.y);
-            GameObject obj  = Instantiate(_circle, pos, Quaternion.identity);
-            obj.transform.rotation = transform.rotation;
-            obj.transform.SetParent(null);
-        }
-        _weaponSwap.UseAmmo();
+
+        _weaponAudio.PlayShootSound();
+        Vector2 pos = new Vector2(transform.position.x,transform.position.y);
+        GameObject obj  = Instantiate(_bullet, pos, Quaternion.identity);
+        obj.transform.rotation = transform.rotation;
+        obj.transform.SetParent(null);
+        
+        weaponSwap.UseAmmo();
 
 
     }
@@ -87,10 +131,11 @@ public class Weapon : MonoBehaviour
     {
         _reloadGaugeUI.gameObject.SetActive(true);
         float time = 0f;
-        while(time <= _weaponDataSO.reloadTime)
+        _weaponAudio.PlayReloadSound();
+        while(time <= weaponDataSO.reloadTime)
         {
             _reloadGaugeUI.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 0.75f);
-            _reloadGaugeUI.ReloadGageNormal(time / _weaponDataSO.reloadTime);
+            _reloadGaugeUI.ReloadGageNormal(time / weaponDataSO.reloadTime);
             time += Time.deltaTime;
             yield return null;
         }
@@ -98,20 +143,24 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Reloading()
     {
-        while(true)
+        StartCoroutine(Reload());
+        _isReloading = true;
+        yield return new WaitForSeconds(weaponDataSO.reloadTime);
+        _isReloading = false;
+        weaponSwap.ReloadWeapon();
+        //_maxAmmo = _weaponDataSO.maxAmmo;
+        _reloadGaugeUI.gameObject.SetActive(false);
+            
+        
+    }
+    private void Update()
+    {
+        OnShootEvent();
+        if(Input.GetKeyDown(KeyCode.R) && _isReloading == false)
         {
-            if(Input.GetKeyDown(KeyCode.R) && _isReloading == false)
-            {
-                StartCoroutine(Reload());
-                _isReloading = true;
-                yield return new WaitForSeconds(_weaponDataSO.reloadTime);
-                _isReloading = false;
-                _weaponSwap.ReloadWeapon();
-                //_maxAmmo = _weaponDataSO.maxAmmo;
-                _reloadGaugeUI.gameObject.SetActive(false);
-            }
-            yield return null;
+            StartCoroutine(Reloading());
         }
+
     }
 
     public void OnShootEvent()
@@ -121,7 +170,7 @@ public class Weapon : MonoBehaviour
             _isShooting = true;
             if(_isShooting == true && _isReloading == false)
             {
-                if(_weaponSwap.WeaponAmmo() > 0 )
+                if(weaponSwap.WeaponAmmo() > 0 )
                 {
                     ShootBullet();
                     OnShoot?.Invoke();
@@ -139,14 +188,11 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        OnShootEvent();
-    }
+
     protected void FinishShooting()
     {
         StartCoroutine(WaitShootingDelay());
-        if(_weaponDataSO.automaticFire == false)
+        if(weaponDataSO.automaticFire == false)
         {
             _isShooting = false;
         }
@@ -155,7 +201,7 @@ public class Weapon : MonoBehaviour
     public IEnumerator WaitShootingDelay()
     {
         _isReloading = true;
-        yield return new WaitForSeconds(_weaponDataSO.shootingDelay);
+        yield return new WaitForSeconds(weaponDataSO.shootingDelay);
         _isReloading = false;
         
     }

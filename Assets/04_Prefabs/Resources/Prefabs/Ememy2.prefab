@@ -415,7 +415,7 @@ MonoBehaviour:
   - {fileID: 1175101966383359942}
   - {fileID: 1175101966383359943}
   positiveState: {fileID: 1175101966219999380}
-  negativeState: {fileID: 0}
+  negativeState: {fileID: 1175101966219999380}
 --- !u!114 &1175101966383359942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,7 +566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttack: 0
-  isChase: 0
+  targetSpotted: 0
+  arrived: 0
 --- !u!1 &1175101966867358739
 GameObject:
   m_ObjectHideFlags: 0

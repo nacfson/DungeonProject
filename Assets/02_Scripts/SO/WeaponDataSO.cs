@@ -17,4 +17,6 @@ public class WeaponDataSO : ScriptableObject
 
     public bool automaticFire;
 
+    public Sprite sprite;
+
 }

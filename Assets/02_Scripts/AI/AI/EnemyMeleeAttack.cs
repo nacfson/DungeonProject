@@ -5,11 +5,7 @@ using UnityEngine;
 public class EnemyMeleeAttack : EnemyAttack
 {
     public float currentDistance;
-    private AIState ChaseState;
-    private void Start()
-    {
-        ChaseState = GameObject.Find("ChaseState").GetComponent<AIState>();
-    }
+
     public override void Attack(int damage)
     {
         if(WaitBeforeNextAttack == false)
@@ -27,10 +23,6 @@ public class EnemyMeleeAttack : EnemyAttack
             }
             AttackFeedBack?.Invoke();
             StartCoroutine(WaitBeforeAttackCoroutine());
-
-            
-            _enemyAIBrain.ChangeState(ChaseState);
-
         }
     }
 }

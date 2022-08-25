@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using DG.Tweening;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField]
@@ -12,61 +13,45 @@ public class EnemySpawn : MonoBehaviour
 
     [SerializeField]
     private MapSO _mapSO;
-    
-    int minCount;
-    int maxCount;
 
-    float spawnDelay;
 
-    Vector3 _randomSpawnPos;
 
-    private void Awake()
+
+    public void Faze1()
     {
-        minCount = 0;
-        maxCount = 3;
-        spawnDelay = 1f;
+        StartCoroutine(SpawnEnemy1(0,3,1f));
+        StartCoroutine(SpawnEnemy2(0,3,1f));
     }
 
-    private void Start()
+    public void Faze2()
     {
-        StartCoroutine(SpawnEnemy2());
-        StartCoroutine(SpawnEnemy1());
-
+        StartCoroutine(SpawnEnemy1(0,5,0.9f));
+        StartCoroutine(SpawnEnemy2(0,5,0.8f));
     }
-
-    private void Update()
+    IEnumerator SpawnEnemy1(int minCount, int maxCount, float spawnDelay)
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(SpawnEnemy2());
-        }
-    }
-    IEnumerator SpawnEnemy1()
-    {
-        minCount = 0;
         while(minCount < maxCount)
         {
-            SetSpawnPos();
-            Instantiate(_enemy1, _randomSpawnPos, Quaternion.identity);
+            Instantiate(_enemy1, SetSpawnPos(), Quaternion.identity);
             minCount ++;
             yield return new WaitForSeconds(spawnDelay);
         }
     }
-    IEnumerator SpawnEnemy2()
+    IEnumerator SpawnEnemy2(int minCount ,int maxCount, float spawnDelay)
     {
-        int minCount = 0;
-        int maxCount  = 1;
         while(minCount < maxCount)
         {
             SetSpawnPos();
-            Instantiate(_enemy2, _randomSpawnPos, Quaternion.identity);
+            Instantiate(_enemy2, SetSpawnPos(), Quaternion.identity);
             minCount ++;
             yield return new WaitForSeconds(1f);
         }
     }
-    private void SetSpawnPos()
+    private Vector3 SetSpawnPos()
     {
-        _randomSpawnPos = new Vector3
+        Vector3 randomPos = new Vector3
         (Random.Range(_mapSO.minX,_mapSO.maxX),Random.Range(_mapSO.minY,_mapSO.maxY));
+        return randomPos;
+        
     }
 }

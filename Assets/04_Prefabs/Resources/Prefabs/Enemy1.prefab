@@ -459,7 +459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttack: 0
-  isChase: 0
+  targetSpotted: 0
+  arrived: 0
 --- !u!1 &6624719107389018030
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +573,7 @@ MonoBehaviour:
   - {fileID: 6624719107390053411}
   - {fileID: 6624719107390053410}
   positiveState: {fileID: 6624719107629073265}
-  negativeState: {fileID: 0}
+  negativeState: {fileID: 6624719107629073265}
 --- !u!114 &6624719107390053411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,8 +649,8 @@ MonoBehaviour:
   _actions:
   - {fileID: 6624719107629073264}
   _transition:
-  - {fileID: 6624719107389018016}
   - {fileID: 6624719106952947772}
+  - {fileID: 6624719107389018016}
 --- !u!114 &6624719107629073264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc4ed985feaf2545a5aea8c7aaafa82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 6624719107999122666}
   criticalRange: 0
 --- !u!70 &6624719107999122665
 CapsuleCollider2D:
