@@ -35,7 +35,12 @@ public class FazeUI : MonoBehaviour
 
     private void Start()
     {
-        fazeText.text = "Faze1";
-        FazeText();
+        Faze("Faze1");
+    }
+
+    public void Faze(string fazeName)
+    {
+        fazeText.text = fazeName.ToString();
+        FazeText(); //페이즈 텍스트 다트윈
     }
 }

@@ -23,6 +23,7 @@ public class Weapon : MonoBehaviour
     public WeaponSwap weaponSwap;
 
 
+
     [SerializeField]
     public WeaponDataSO weaponDataSO;
 
@@ -98,7 +99,7 @@ public class Weapon : MonoBehaviour
         StopAllCoroutines();
         _reloadGaugeUI.gameObject.SetActive(false);
         _isReloading = false;
-                   _gunPanel.PanelActiveTrue();
+        _gunPanel.PanelActiveTrue();
         //_panelAnimation.Animation(_gunPanel.revolverPanel);
         weaponSwap.WeaponActive();
     }

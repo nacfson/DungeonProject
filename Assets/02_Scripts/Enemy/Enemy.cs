@@ -67,7 +67,6 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
         _collider.enabled = true;
         _isDead = false;
         _isActive = true;
-        SetEnemyData();
     }
 
     private void SetEnemyData()
@@ -100,6 +99,7 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
 
     public void Die()
     {
+        _enemyBrain.gameManager.mobCount ++;
         PoolManager.Instance.Push(this);
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-public class EnemySpawn : MonoBehaviour
+public class EnemySpawn : PoolAbleMono
 {
     [SerializeField]
     private GameObject _enemy1;
@@ -15,28 +15,26 @@ public class EnemySpawn : MonoBehaviour
     private MapSO _mapSO;
 
 
+
+
     private void Start()
     {
-
+        Faze(3,2,1f);
     }
 
-    public void Faze1()
+
+    public void Faze(int maxCount, int maxCount2, float spawnDelay)
     {
-        StartCoroutine(SpawnEnemy1(0,3,1f));
-        StartCoroutine(SpawnEnemy2(0,3,1f));
+        StartCoroutine(SpawnEnemy1(0,maxCount,spawnDelay));
+        StartCoroutine(SpawnEnemy2(0,maxCount2,spawnDelay));
     }
 
-    public void Faze2()
-    {
-        StartCoroutine(SpawnEnemy1(0,5,0.9f));
-        StartCoroutine(SpawnEnemy2(0,5,0.8f));
-    }
     IEnumerator SpawnEnemy1(int minCount, int maxCount, float spawnDelay)
     {
         while(minCount < maxCount)
         {
-            PoolAbleMono obj = PoolManager.Instance.Pop("Enemy1");
-            obj.transform.position = SetSpawnPos();
+            Enemy enemy = PoolManager.Instance.Pop("Enemy1")as Enemy;
+            enemy.transform.SetPositionAndRotation(SetSpawnPos(), Quaternion.identity);
             minCount ++;
             yield return new WaitForSeconds(spawnDelay);
         }
@@ -45,17 +43,25 @@ public class EnemySpawn : MonoBehaviour
     {
         while(minCount < maxCount)
         {
-            PoolAbleMono obj = PoolManager.Instance.Pop("Enemy2");
-            obj.transform.position = SetSpawnPos();
+            Enemy enemy2 = PoolManager.Instance.Pop("Enemy2")as Enemy;
+            enemy2.transform.SetPositionAndRotation(SetSpawnPos(), Quaternion.identity);
             minCount ++;
             yield return new WaitForSeconds(1f);
         }
     }
+
+
+
     private Vector3 SetSpawnPos()
     {
         Vector3 randomPos = new Vector3
         (Random.Range(_mapSO.minX,_mapSO.maxX),Random.Range(_mapSO.minY,_mapSO.maxY));
         return randomPos;
         
+    }
+
+    public override void Init()
+    {
+        throw new System.NotImplementedException();
     }
 }

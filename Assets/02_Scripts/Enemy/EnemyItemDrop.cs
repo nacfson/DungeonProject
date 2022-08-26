@@ -11,8 +11,8 @@ public class EnemyItemDrop : MonoBehaviour
     private int randomInt;
     public void DropItem()
     {
-        randomInt = Random.Range(1,11);
-        if(randomInt > 9)
+        randomInt = Random.Range(1,22);
+        if(randomInt > 21)
         {
             Instantiate(_healItem,transform.position,Quaternion.identity);
         }

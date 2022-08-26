@@ -7,7 +7,7 @@ public class PoolManager
     public static PoolManager Instance = null;
 
     private Dictionary<string, Pool<PoolAbleMono>> _pools = new Dictionary<string, Pool<PoolAbleMono>>();
-    //Å°¹ë·ù Æä¾î ±¸Á¶
+    //Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public Transform _trmParent;
     public PoolManager(Transform trmParent)
@@ -24,15 +24,14 @@ public class PoolManager
         }
         else
         {
-            Debug.LogError($"{obj.gameObject.name}Àº Ç®¿¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            Debug.LogError($"{obj.gameObject.name}ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
         }
     }
     public PoolAbleMono Pop(string objName)
     {
         if (_pools.ContainsKey(objName) == false)
         {
-
-            Debug.LogError($"{objName}Àº Ç®¿¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            Debug.LogError($"{objName}ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
             return null;
         }
 
@@ -45,6 +44,6 @@ public class PoolManager
     {
         Pool<PoolAbleMono> pool = new Pool<PoolAbleMono>(prefab, _trmParent, count);
         _pools.Add(prefab.gameObject.name, pool);
-        //dictionary ¿¡ ÇÁ¸®ÆéÀÇ ÀÌ¸§À¸·Î poolÀ» µî·ÏÇÑ´Ù.
+        //dictionary ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ poolï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
     }
 }
