@@ -31,15 +31,23 @@ public class EnemyAnimation : AgentAnimation
     public void PlayAttackAnimation()
     {
         EnemyMeleeAttack ema = _enemyMeleeAttack;
-        _animator.SetTrigger(_attackHash);
-        transform.DOMove(new Vector3(transform.position.x + ema.currentDistance, transform.position.y + ema.currentDistance ), 0.3f);
+        _animator.SetBool(_attackHash, true);
+        //transform.DOMove(new Vector3(transform.position.x + ema.currentDistance, transform.position.y + ema.currentDistance ), 0.3f);
+    }
 
+    private void Update()
+    {
+        transform.localPosition = Vector2.zero;
     }
 
     public override void PlayDeadAnimation()
     {
         base.PlayDeadAnimation();
         _animator.SetBool(_deathBoolHash, true);
+    }
+    public void EndOfAttack()
+    {
+        _animator.SetBool(_attackHash,false);
     }
 
     public void EndOfDeadAnimation()

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1175101965770260238}
   - component: {fileID: 1175101965770260233}
   - component: {fileID: 5105971629448357824}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1175101965770260246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.77, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1175101967199765888}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 1175101965790990046}
   - component: {fileID: 1175101965790990040}
   - component: {fileID: 1175101965790990041}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 1175101966219999386}
   - component: {fileID: 1175101966219999380}
   - component: {fileID: 1175101966219999381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97527bb46d39c649a4a135fa449c425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1175101967199765891}
 --- !u!1 &1175101966383359941
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +378,7 @@ GameObject:
   - component: {fileID: 1175101966383359937}
   - component: {fileID: 1175101966383359942}
   - component: {fileID: 1175101966383359943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +453,7 @@ GameObject:
   - component: {fileID: 1175101966384428106}
   - component: {fileID: 1175101966384428101}
   - component: {fileID: 1175101966384428100}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +515,7 @@ GameObject:
   - component: {fileID: 1175101966438005137}
   - component: {fileID: 1175101966438005139}
   - component: {fileID: 1175101966438005136}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1175101966867358738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BasePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +611,7 @@ GameObject:
   - component: {fileID: 1175101966887605214}
   - component: {fileID: 1175101966887605209}
   - component: {fileID: 1175101966887605208}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: IdleTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175101967019186030}
   - component: {fileID: 1175101967019186025}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MovementCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +723,7 @@ GameObject:
   - component: {fileID: 1175101967199765890}
   - component: {fileID: 1175101967199766013}
   - component: {fileID: 1175101967199766012}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VisualSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +786,7 @@ SpriteRenderer:
   m_SortingLayerID: -1262388559
   m_SortingLayer: 5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 2142187566, guid: 6de88129f1c01454c976f079936ee00d, type: 3}
+  m_Sprite: {fileID: 64381956, guid: c15abde6104b2f444ac9e1c8f1cd94a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -833,7 +834,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8b466f531e276e340908cfd1e3694295, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -851,7 +852,7 @@ GameObject:
   - component: {fileID: 1175101967276768553}
   - component: {fileID: 1175101967276768552}
   - component: {fileID: 1175101967276768555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: IdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +914,7 @@ GameObject:
   - component: {fileID: 1175101967570593819}
   - component: {fileID: 1175101967570593818}
   - component: {fileID: 1175101967570593813}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

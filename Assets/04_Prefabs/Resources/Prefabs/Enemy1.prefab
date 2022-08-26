@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6624719106278347774}
   - component: {fileID: 6624719106278347775}
   - component: {fileID: 6624719106278347760}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6624719106572175052}
   - component: {fileID: 6624719106572175053}
   - component: {fileID: 6624719106572175054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: IdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6624719106577841767}
   - component: {fileID: 6624719106577841688}
   - component: {fileID: 6624719106577841689}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VisualSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: -1262388559
   m_SortingLayer: 5
   m_SortingOrder: 3
-  m_Sprite: {fileID: -387449225, guid: 6de88129f1c01454c976f079936ee00d, type: 3}
+  m_Sprite: {fileID: 960482549, guid: 8e70eb88b471dfc419301e59ee594ecc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -248,7 +248,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 19ccba2216928ad489ce742f22eaef12, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6624719106817141899}
   - component: {fileID: 6624719106817141900}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MovementCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6624719106914607095}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BasePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 6624719106952947771}
   - component: {fileID: 6624719106952947772}
   - component: {fileID: 6624719106952947773}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: IdleTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 6624719107343827572}
   - component: {fileID: 6624719107343827574}
   - component: {fileID: 6624719107343827573}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 6624719107389018031}
   - component: {fileID: 6624719107389018016}
   - component: {fileID: 6624719107389018017}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 6624719107390053412}
   - component: {fileID: 6624719107390053411}
   - component: {fileID: 6624719107390053410}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 6624719107629073279}
   - component: {fileID: 6624719107629073265}
   - component: {fileID: 6624719107629073264}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChaseState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97527bb46d39c649a4a135fa449c425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 6624719106577841766}
 --- !u!1 &6624719107986781498
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ GameObject:
   - component: {fileID: 6624719107986781499}
   - component: {fileID: 6624719107986781501}
   - component: {fileID: 6624719107986781500}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +743,7 @@ GameObject:
   - component: {fileID: 6624719107999122667}
   - component: {fileID: 6624719107999122668}
   - component: {fileID: -8251305033583076315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +759,7 @@ Transform:
   m_GameObject: {fileID: 6624719107999122675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.77, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6624719106577841765}
