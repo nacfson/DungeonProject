@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Bullet : MonoBehaviour
+public class Bullet : PoolAbleMono
 {
     public WeaponDataSO BulletDataSO
     {
@@ -18,6 +18,10 @@ public class Bullet : MonoBehaviour
     {
         _rigidBody.MovePosition(transform.position + _bulletDataSO.speed * Time.fixedDeltaTime *transform.right);
     }
+    public override void Init()
+    {
+
+    }
 
     private void Awake()
     {
@@ -27,6 +31,6 @@ public class Bullet : MonoBehaviour
     IEnumerator DestroyObject()
     {
         yield return new WaitForSeconds(_destroyTime);
-        Destroy(gameObject);
+        PoolManager.Instance.Push(this);
     }
 }

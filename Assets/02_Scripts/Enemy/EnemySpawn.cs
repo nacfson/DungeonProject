@@ -15,7 +15,10 @@ public class EnemySpawn : MonoBehaviour
     private MapSO _mapSO;
 
 
+    private void Start()
+    {
 
+    }
 
     public void Faze1()
     {
@@ -32,7 +35,8 @@ public class EnemySpawn : MonoBehaviour
     {
         while(minCount < maxCount)
         {
-            Instantiate(_enemy1, SetSpawnPos(), Quaternion.identity);
+            PoolAbleMono obj = PoolManager.Instance.Pop("Enemy1");
+            obj.transform.position = SetSpawnPos();
             minCount ++;
             yield return new WaitForSeconds(spawnDelay);
         }
@@ -41,8 +45,8 @@ public class EnemySpawn : MonoBehaviour
     {
         while(minCount < maxCount)
         {
-            SetSpawnPos();
-            Instantiate(_enemy2, SetSpawnPos(), Quaternion.identity);
+            PoolAbleMono obj = PoolManager.Instance.Pop("Enemy2");
+            obj.transform.position = SetSpawnPos();
             minCount ++;
             yield return new WaitForSeconds(1f);
         }

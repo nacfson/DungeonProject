@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Enemy : MonoBehaviour,IHittable, IAgent
+public class Enemy : PoolAbleMono,IHittable, IAgent
 {
     public EnemyDataSO EnemyDataSO
     {
@@ -62,6 +62,13 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
         _enemyItemDrop = GetComponent<EnemyItemDrop>();
     }
 
+    public override void Init()
+    {
+        _collider.enabled = true;
+        _isDead = false;
+        _isActive = true;
+        SetEnemyData();
+    }
 
     private void SetEnemyData()
     {
@@ -93,7 +100,7 @@ public class Enemy : MonoBehaviour,IHittable, IAgent
 
     public void Die()
     {
-        Destroy(gameObject);
+        PoolManager.Instance.Push(this);
     }
 
     public void GetHit(int damage, GameObject damageDealer)

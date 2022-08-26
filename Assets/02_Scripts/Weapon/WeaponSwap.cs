@@ -49,6 +49,26 @@ public class WeaponSwap : MonoBehaviour
         _flashLightFeedBack = GetComponentInChildren<FlashLightFeedBack>();
     }
 
+    public string BulletCheck()
+    {
+        string bulletName = null;
+        switch(weaponCount)
+        {
+            case 0:
+                bulletName = "Bullet";
+                break;
+            case 1:
+                bulletName = "AK47Bullet";
+
+                break;
+            case 2:
+                bulletName = "ShotGunBullet";
+
+                break;
+
+        }
+        return bulletName;
+    }
     public void UseAmmo()
     {
         switch(weaponCount)

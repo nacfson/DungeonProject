@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 38746278}
+  _poolingListSO: {fileID: 11400000, guid: 5c9d65dc78deb374aa0679466b223d94, type: 2}
   player: {fileID: 38746281}
 --- !u!4 &154525766
 Transform:

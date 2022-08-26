@@ -1,68 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class PooolManager
+public class PoolManager
 {
-    public static Dictionary<string, object> pool = new Dictionary<string, object>();
-    public static Dictionary<string, GameObject> prefabDictionary = new Dictionary<string, GameObject>();
+    public static PoolManager Instance = null;
 
+    private Dictionary<string, Pool<PoolAbleMono>> _pools = new Dictionary<string, Pool<PoolAbleMono>>();
+    //≈∞πÎ∑˘ ∆‰æÓ ±∏¡∂
 
-    public static void CreatePool<T>(string name, GameObject parent, int count = 5) where T : MonoBehaviour
+    public Transform _trmParent;
+    public PoolManager(Transform trmParent)
     {
-        Queue<T> q = new Queue<T>();
-        T prefab = Resources.Load<T>("Prefabs/" + name);
-
-        for (int i = 0; i < count; i++)
-        {
-            GameObject g = GameObject.Instantiate(prefab.gameObject, parent.transform);
-
-            g.SetActive(false);
-            q.Enqueue(g.GetComponent<T>());
-        }
-
-        try
-        {
-            pool.Add(name, q);
-            prefabDictionary.Add(name, prefab.gameObject);
-        }
-        catch (ArgumentException e)
-        {
-            pool.Clear();
-            prefabDictionary.Clear();
-            pool.Add(name, q);
-            prefabDictionary.Add(name, prefab.gameObject);
-        }
+        _trmParent = trmParent;
     }
 
-    public static T GetItem<T>(string name) where T : MonoBehaviour
+    public void Push(PoolAbleMono obj)
     {
-        T item = null;
-        if (pool.ContainsKey(name))
+        if (_pools.ContainsKey(obj.gameObject.name))
         {
-            Queue<T> q = (Queue<T>)pool[name];
-            T firstItem = q.Peek();
-
-            if (firstItem.gameObject.activeSelf)
-            {  //Ï≤´Î≤àÏß∏ ÏïÑÏù¥ÌÖúÏù¥ Ïù¥ÎØ∏ ÏÇ¨Ïö©Ï§ëÏù¥ÎùºÎ©¥
-                GameObject prefab = prefabDictionary[name];
-                GameObject g = GameObject.Instantiate(prefab, firstItem.transform.parent);
-                item = g.GetComponent<T>();
-            }
-            else
-            {
-                item = q.Dequeue();
-                item.gameObject.SetActive(true);
-            }
-            IPoolable ipool = item.GetComponent<IPoolable>();
-            if (ipool != null)
-            {
-                ipool.OnPool();
-            }
-            q.Enqueue(item);
+            _pools[obj.gameObject.name].Push(obj);
 
         }
+        else
+        {
+            Debug.LogError($"{obj.gameObject.name}¿∫ «Æø° ¡∏¿Á«œ¡ˆ æ Ω¿¥œ¥Ÿ.");
+        }
+    }
+    public PoolAbleMono Pop(string objName)
+    {
+        if (_pools.ContainsKey(objName) == false)
+        {
+
+            Debug.LogError($"{objName}¿∫ «Æø° ¡∏¿Á«œ¡ˆ æ Ω¿¥œ¥Ÿ.");
+            return null;
+        }
+
+        PoolAbleMono item = _pools[objName].Pop();
+        item.Init();
         return item;
+    }
+
+    public void CreatePool(PoolAbleMono prefab, int count = 10)
+    {
+        Pool<PoolAbleMono> pool = new Pool<PoolAbleMono>(prefab, _trmParent, count);
+        _pools.Add(prefab.gameObject.name, pool);
+        //dictionary ø° «¡∏Æ∆È¿« ¿Ã∏ß¿∏∑Œ pool¿ª µÓ∑œ«—¥Ÿ.
     }
 }
