@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy1: {fileID: 6624719107999122675, guid: e4fc20ede4921c04f827468428aa1ca3, type: 3}
+  _enemy2: {fileID: 1175101965770260246, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}
   _mapSO: {fileID: 11400000, guid: 457e569fc52e02840b97feb19bdb6133, type: 2}

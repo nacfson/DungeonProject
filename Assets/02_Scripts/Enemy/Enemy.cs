@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Enemy : PoolAbleMono,IHittable, IAgent
 {
@@ -27,7 +28,8 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
 
     private EnemyItemDrop _enemyItemDrop;
 
-    public int Health {get; private set;}
+    private SpriteRenderer renderer;
+    public int Health {get; set;}
 
     [field:SerializeField]
     public UnityEvent OnDie {get; set;}
@@ -50,6 +52,7 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
 
     private void Awake()
     {
+        renderer = GetComponentInChildren<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         _collider.enabled = true;
         _isDead = false;
@@ -62,12 +65,7 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
         _enemyItemDrop = GetComponent<EnemyItemDrop>();
     }
 
-    public override void Init()
-    {
-        _collider.enabled = true;
-        _isDead = false;
-        _isActive = true;
-    }
+
 
     private void SetEnemyData()
     {
@@ -106,15 +104,7 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
     public void GetHit(int damage, GameObject damageDealer)
     {
         if (_isDead == true) return;
-
-
-
-        //hp -= damage;
         HitPoint = damageDealer.transform.position;
-
-
-        
-
         OnGetHit?.Invoke();
         if(hp <= 0)
         {
@@ -125,9 +115,20 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
     public void DeadProcess()
     {
         _enemyItemDrop.DropItem();
-        Health = 0;
+        hp = 0;
         _isDead = true;
         _animator.SetBool("isDead",true);
+        _animator.SetBool("isWalk",false);
         _collider.enabled = false;
+    }
+    public override void Init()
+    {
+        hp = _enemyDataSO.maxHP;
+        _animator.SetBool("isDead",false);
+        _animator.SetBool("isWalk",true);
+        _isDead = false;
+        gameObject.SetActive(true);
+        _isActive = true;
+        _collider.enabled = true;
     }
 }

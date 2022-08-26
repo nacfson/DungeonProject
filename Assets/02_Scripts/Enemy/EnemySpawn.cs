@@ -23,6 +23,7 @@ public class EnemySpawn : PoolAbleMono
     }
 
 
+
     public void Faze(int maxCount, int maxCount2, float spawnDelay)
     {
         StartCoroutine(SpawnEnemy1(0,maxCount,spawnDelay));

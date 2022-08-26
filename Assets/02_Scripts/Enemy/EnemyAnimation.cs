@@ -10,7 +10,7 @@ public class EnemyAnimation : AgentAnimation
 
     protected EnemyMeleeAttack _enemyMeleeAttack;
     protected readonly int _attackHash = Animator.StringToHash("isAttack");
-    protected readonly int _deathBoolHash = Animator.StringToHash("IsDead");
+    protected readonly int _deathBoolHash = Animator.StringToHash("isDead");
 
 
     protected override void Awake()

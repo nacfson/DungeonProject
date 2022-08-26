@@ -24,9 +24,10 @@ public class GameManager : MonoBehaviour
     public Player player;
     private void Awake()
     {
+        mobCount = 0;
         PoolManager.Instance = new PoolManager(transform);
         CreatePool();
-        StartCoroutine(CheckMobCount());
+        StartCoroutine(CheckMobCount2());
     }
     private void CreatePool()
     {
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
             PoolManager.Instance.CreatePool(pp.prefab, pp.poolCount);
         }
     }
-    IEnumerator CheckMobCount()
+    IEnumerator CheckMobCount2()
     {
         while(true)
         {
@@ -44,6 +45,36 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Faze2");
                 Faze2?.Invoke();
             }
+            yield return null;
+        }
+    }
+    public IEnumerator CheckMobCount3()
+    {
+
+        while(true)
+        {
+            if(mobCount >= 52)
+            {
+                Debug.Log("Faze3");
+                Faze3?.Invoke();
+            }
+            yield return null;
+        }
+    }
+    public void StartCoroutineName(string corName)
+    {
+        StartCoroutine(corName);
+    }
+    public IEnumerator CheckMobCount4()
+    {
+        while(true)
+        {
+            if(mobCount >= 90)
+            {
+                Debug.Log("Faze2");
+                Faze2?.Invoke();
+            }
+            yield return null;
         }
     }
 

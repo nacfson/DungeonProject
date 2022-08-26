@@ -41,6 +41,7 @@ public class FazeUI : MonoBehaviour
     public void Faze(string fazeName)
     {
         fazeText.text = fazeName.ToString();
+        fazeText.enabled = true;
         FazeText(); //페이즈 텍스트 다트윈
     }
 }
