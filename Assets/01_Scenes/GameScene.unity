@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 38746280}
   - component: {fileID: 38746281}
   - component: {fileID: 38746282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3d529eee1b47d48a3bb2fbd5c56186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fazeText: {fileID: 577075879}
+  _waveText: {fileID: 577075879}
   time: 1
   rotationValue: 0
 --- !u!4 &64588509
@@ -399,15 +399,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 64588508}
-        m_TargetAssemblyTypeName: FazeUI, Assembly-CSharp
-        m_MethodName: Faze
+        m_TargetAssemblyTypeName: WaveUI, Assembly-CSharp
+        m_MethodName: Wave
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Faze2
+          m_StringArgument: Wave2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 159346247}
@@ -487,7 +487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &159346246
 Transform:
   m_ObjectHideFlags: 0
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 275241940}
   - component: {fileID: 275241939}
   - component: {fileID: 275241941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2232,7 +2232,7 @@ GameObject:
   - component: {fileID: 577075880}
   - component: {fileID: 577075879}
   m_Layer: 5
-  m_Name: FazeText
+  m_Name: WaveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2258,7 +2258,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Faze1
+  m_text: 'Wave1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5481,7 +5483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 810631362}
   - component: {fileID: 810631363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6148,7 +6150,7 @@ GameObject:
   - component: {fileID: 1276134637}
   - component: {fileID: 1276134636}
   - component: {fileID: 1276134638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'Ak47 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10324,7 +10326,7 @@ GameObject:
   - component: {fileID: 1412791604}
   - component: {fileID: 1412791603}
   - component: {fileID: 1412791602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10789,7 +10791,7 @@ GameObject:
   - component: {fileID: 1642348001}
   - component: {fileID: 1642348000}
   - component: {fileID: 1642348002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10900,7 +10902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1662811654}
   - component: {fileID: 1662811655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -11203,7 +11205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1848907653}
   - component: {fileID: 1848907654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -11316,7 +11318,7 @@ GameObject:
   - component: {fileID: 1923177465}
   - component: {fileID: 1923177466}
   - component: {fileID: 1923177467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11567,7 +11569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1962569929}
   - component: {fileID: 1962569930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -11681,7 +11683,7 @@ GameObject:
   - component: {fileID: 2041374006}
   - component: {fileID: 2041374005}
   - component: {fileID: 2041374004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FeedBackShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

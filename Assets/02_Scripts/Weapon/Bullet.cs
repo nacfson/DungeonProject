@@ -20,17 +20,20 @@ public class Bullet : PoolAbleMono
     }
     public override void Init()
     {
-
+        PushObject();
     }
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-        StartCoroutine(DestroyObject());
     }
     IEnumerator DestroyObject()
     {
         yield return new WaitForSeconds(_destroyTime);
         PoolManager.Instance.Push(this);
+    }
+    public void PushObject()
+    {
+        StartCoroutine(DestroyObject());
     }
 }

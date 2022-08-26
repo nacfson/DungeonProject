@@ -23,7 +23,6 @@ public class EnemyAnimation : AgentAnimation
 
     public void SetEndOffAttackAnimation()
     {
-        //���⼭ �극���� ���ؼ� ���ݻ��� ����
         _enemyAIBrain.AIActionData.isAttack = false;
     }
 
@@ -32,13 +31,8 @@ public class EnemyAnimation : AgentAnimation
     {
         EnemyMeleeAttack ema = _enemyMeleeAttack;
         _animator.SetBool(_attackHash, true);
-        //transform.DOMove(new Vector3(transform.position.x + ema.currentDistance, transform.position.y + ema.currentDistance ), 0.3f);
     }
 
-    private void Update()
-    {
-        transform.localPosition = Vector2.zero;
-    }
 
     public override void PlayDeadAnimation()
     {
@@ -47,15 +41,16 @@ public class EnemyAnimation : AgentAnimation
     }
     public void EndOfAttack()
     {
+        _enemyAIBrain.Enemy.PerformAttack(_enemyAIBrain.Enemy.EnemyDataSO.damage);
         _animator.SetBool(_attackHash,false);
     }
 
-    public void EndOfDeadAnimation()
-    {
-        _enemyAIBrain.Enemy.Die();
-    }
+
     public void Enemy1DeadAnimation()
     {
         _enemyAIBrain.Enemy.Die();
     }
+
+
+
 }
