@@ -28,7 +28,7 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
 
     private EnemyItemDrop _enemyItemDrop;
 
-    private SpriteRenderer renderer;
+
     public int Health {get; set;}
 
     [field:SerializeField]
@@ -52,7 +52,6 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
 
     private void Awake()
     {
-        renderer = GetComponentInChildren<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         _collider.enabled = true;
         _isDead = false;
