@@ -50,10 +50,9 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator CheckMobCount3()
     {
-
         while(true)
         {
-            if(mobCount >= 52)
+            if(mobCount >= 32)
             {
                 Debug.Log("Faze3");
                 Faze3?.Invoke();
@@ -72,10 +71,15 @@ public class GameManager : MonoBehaviour
             if(mobCount >= 90)
             {
                 Debug.Log("Faze2");
-                Faze2?.Invoke();
+                Faze4?.Invoke();
             }
             yield return null;
         }
     }
+    public static double VectorToDegree(Vector2 vector)
+{
+    double radian = Mathf.Atan2(vector.y, vector.x);
+    return (radian*180.0/Mathf.PI);
+}
 
 }

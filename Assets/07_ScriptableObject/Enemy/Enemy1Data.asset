@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2dcee0e5719c14ab6705fef0635cc6, type: 3}
   m_Name: Enemy1Data
   m_EditorClassIdentifier: 
-  maxHP: 8
+  maxHP: 80
   accleration: 40
   deAccleration: 40
   damage: 1

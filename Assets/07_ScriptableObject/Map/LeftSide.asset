@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee96b285f81cd564db6811861ba339a1, type: 3}
   m_Name: LeftSide
   m_EditorClassIdentifier: 
-  maxX: -8
-  minX: -11
-  maxY: 8
-  minY: -8
+  maxX: -14
+  minX: -16
+  maxY: 9
+  minY: -9

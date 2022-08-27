@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdb982536b4b9c458a1c5edbdd89e38, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 40
   reloadTime: 4
   shootingDelay: 0.8
   bandongRange: 1
