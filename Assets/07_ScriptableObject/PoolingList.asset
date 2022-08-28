@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - prefab: {fileID: 1304849271032733942, guid: d8702a4dddc87344899951c4baf69ef3, type: 3}
-    poolCount: 40
+    poolCount: 200
   - prefab: {fileID: 1304849271032733942, guid: ce0d1677ff31cb74f86968a974ade717, type: 3}
-    poolCount: 12
+    poolCount: 54
   - prefab: {fileID: -7157745513724292658, guid: f9ab139b4ecb15d40afda6c12a668d68, type: 3}
-    poolCount: 4
+    poolCount: 20
   - prefab: {fileID: 6624719107999122666, guid: e4fc20ede4921c04f827468428aa1ca3, type: 3}
     poolCount: 80
   - prefab: {fileID: 1175101965770260239, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}

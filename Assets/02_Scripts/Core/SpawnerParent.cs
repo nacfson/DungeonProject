@@ -9,8 +9,8 @@ public class SpawnerParent : MonoBehaviour
 
     public void Start2Spawn()
     {
-        int enemy1Count = 3;
-        int enemy2Count = 2;
+        int enemy1Count = 4;
+        int enemy2Count = 3;
         float spawnDelay = 1f;
         foreach(EnemySpawn em in spawner)
         {

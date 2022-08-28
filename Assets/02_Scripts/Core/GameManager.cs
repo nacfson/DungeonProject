@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Faze2");
                 Faze2?.Invoke();
+                mobCount = 0;
             }
             yield return null;
         }
@@ -52,10 +53,11 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            if(mobCount >= 32)
+            if(mobCount >= 28)
             {
                 Debug.Log("Faze3");
                 Faze3?.Invoke();
+                mobCount = 0;
             }
             yield return null;
         }
@@ -68,10 +70,11 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            if(mobCount >= 90)
+            if(mobCount >= 36)
             {
-                Debug.Log("Faze2");
+                Debug.Log("Clear");
                 Faze4?.Invoke();
+                mobCount = 0;
             }
             yield return null;
         }

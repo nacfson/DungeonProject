@@ -12,14 +12,13 @@ public class PopupText : MonoBehaviour
     private void Awake()
     {
         _textMesh = GetComponent<TextMeshPro>();
-
-
     }
     public void Setup(int damageAmount, Vector3 pos, bool isCritical)
     {
         transform.position = pos;
         if (isCritical == true)
         {
+            Debug.Log("Critical");
             _textMesh.color = Color.red;
             _textMesh.fontSize = 10f;
             _textMesh.SetText(damageAmount *2 + "");
@@ -28,8 +27,7 @@ public class PopupText : MonoBehaviour
         else
         {
             _textMesh.color = Color.white;
-         _textMesh.SetText(damageAmount.ToString());
-
+            _textMesh.SetText(damageAmount.ToString());
         }
 
         ShowingSequence();
@@ -44,14 +42,14 @@ public class PopupText : MonoBehaviour
         seq.AppendCallback(() => Destroy(gameObject));
     }
 
-    public void Reset()
-    {
-        _textMesh.color = Color.white;
-        _textMesh.fontSize = 7f;
-    }
+    // public void Reset()
+    // {
+    //     _textMesh.color = Color.white;
+    //     _textMesh.fontSize = 7f;
+    // }
 
-    private void Start()
-    {
-        Reset();
-    }
+    // private void Start()
+    // {
+    //     Reset();
+    // }
 }

@@ -9,20 +9,7 @@ public class EnemyCollision : MonoBehaviour
     public Enemy enemy;
     
 
-    public float criticalRange;
 
-    public bool IsCritical
-    {
-        get
-        {
-            return _isCritical;
-        }
-        set
-        {
-            _isCritical = value;
-        }
-    }
-    private bool _isCritical;
     private SpriteRenderer spriteRenderer;
     private void Awake()
     {
@@ -30,9 +17,11 @@ public class EnemyCollision : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void RandomCritical()
+    private float RandomCritical()
     {
+        float criticalRange;
         criticalRange = UnityEngine.Random.Range(0f,10f);
+        return criticalRange;
     }    
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -46,7 +35,6 @@ public class EnemyCollision : MonoBehaviour
 
         }
     }
-    
 
     IEnumerator ChangeColorCoroutine()
     {
@@ -56,32 +44,31 @@ public class EnemyCollision : MonoBehaviour
     }
     private void BulletCheck(Collider2D col)
     {
-                RandomCritical();
-                if(criticalRange > 7f)
-                {
-                    _isCritical = true;
-                    
-                }
-                else
-                {
-                    _isCritical = false;
-                }
-                Bullet bul = col.gameObject.GetComponent<Bullet>();
-                if(_isCritical == true)
-                {
-                    enemy.hp -= bul.BulletDataSO.damage * 2;
-                }
-                else
-                {
-                    enemy.hp -= bul.BulletDataSO.damage;
-                }
-                enemy.GetHit(bul.BulletDataSO.damage,gameObject);
-                PopupText popupText = enemy.popupText.GetComponent<PopupText>();
-                PopupText obj = Instantiate(popupText) as PopupText;
-                obj?.Setup(bul.BulletDataSO.damage,transform.position
-                 + new Vector3(0,0.3f),_isCritical);
-
-                Debug.Log(enemy.hp);
-                col.gameObject.SetActive(false);
+        bool _isCritical;
+        if(RandomCritical() > 7f)
+        {
+            _isCritical = true;
+        }
+        else
+        {
+            _isCritical = false;
+        }
+        
+        Bullet bul = col.gameObject.GetComponent<Bullet>();
+        if(_isCritical == true)
+        {
+            enemy.hp -= bul.BulletDataSO.damage * 2;
+        }
+        else
+        {
+            enemy.hp -= bul.BulletDataSO.damage;
+        }
+        enemy.GetHit(bul.BulletDataSO.damage,gameObject);
+        PopupText popupText = enemy.popupText.GetComponent<PopupText>();
+        PopupText obj = Instantiate(popupText) as PopupText;
+        obj?.Setup(bul.BulletDataSO.damage,transform.position
+         + new Vector3(0,0.3f), _isCritical);
+        Debug.Log(enemy.hp);
+        col.gameObject.SetActive(false);
     }
 }
