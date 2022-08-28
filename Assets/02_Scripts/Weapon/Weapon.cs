@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour
             case 0:
 
 
-            _weaponAudio.SetAudioClip(_audioSO.revolverShoot,_audioSO.revolverReload,_audioSO.revolverShoot);
+            _weaponAudio.SetAudioClip(_audioSO.revolverShoot,_audioSO.revolverReload,_audioSO.revolverReload);
             weaponDataSO = weaponSwap.revolverSO;
             _muzzle = weaponSwap.revolver.transform.Find("Muzzle").gameObject;
             _bullet = weaponSwap.revolver.GetComponent<WeaponBullet>().myBullet;
@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
             case 1:
 
 
-            _weaponAudio.SetAudioClip(_audioSO.ak47Shoot,_audioSO.ak47Reload,_audioSO.ak47Shoot);
+            _weaponAudio.SetAudioClip(_audioSO.ak47Shoot,_audioSO.ak47Reload,_audioSO.ak47Reload);
 
             weaponDataSO = weaponSwap.ak47SO;
             _muzzle = weaponSwap.ak47.transform.Find("Muzzle").gameObject;
@@ -78,7 +78,7 @@ public class Weapon : MonoBehaviour
                 break;
             case 2:
 
-            _weaponAudio.SetAudioClip(_audioSO.shotGunShoot,_audioSO.shotGunReload,_audioSO.shotGunShoot);
+            _weaponAudio.SetAudioClip(_audioSO.shotGunShoot,_audioSO.shotGunReload,_audioSO.shotGunReload);
             weaponDataSO = weaponSwap.shotGunSO;
             _muzzle = weaponSwap.shotGun.transform.Find("Muzzle").gameObject;
             _bullet = weaponSwap.shotGun.GetComponent<WeaponBullet>().myBullet;

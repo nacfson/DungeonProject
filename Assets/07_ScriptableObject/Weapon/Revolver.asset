@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   damage: 40
-  reloadTime: 4
+  reloadTime: 2
   shootingDelay: 0.8
   bandongRange: 1
   speed: 7

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AK47
   m_EditorClassIdentifier: 
   damage: 10
-  reloadTime: 2
+  reloadTime: 1
   shootingDelay: 0.2
   bandongRange: 1
   speed: 7
