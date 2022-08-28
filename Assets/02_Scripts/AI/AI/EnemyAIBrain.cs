@@ -105,6 +105,7 @@ public class EnemyAIBrain : MonoBehaviour
     public virtual void Attack()
     {
         OnFireButtonPress?.Invoke();
+        _aiActionData.isAttack = true;
     }
     public void Move(Vector2 direction, Vector2 targetPos)
     {

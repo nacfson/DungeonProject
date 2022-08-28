@@ -8,4 +8,7 @@ public class GameSceneManager : SceneManagerParent
     {
         base.LoadScene("GameOver");
     }
+    private void Awake() {
+        LoadSceneAdditive("OptionScene");
+    }
 }

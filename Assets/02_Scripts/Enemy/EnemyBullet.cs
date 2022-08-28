@@ -16,7 +16,7 @@ public class EnemyBullet : PoolAbleMono
     private float _destroyTime = 2f;
     private void FixedUpdate()
     {
-        _rigidBody.MovePosition(transform.position + _bulletDataSO.speed * Time.fixedDeltaTime *transform.right);
+        _rigidBody.MovePosition(transform.position + _bulletDataSO.speed * Time.fixedDeltaTime * transform.right);
     }
     public override void Init()
     {
@@ -35,5 +35,18 @@ public class EnemyBullet : PoolAbleMono
     public void PushObject()
     {
         StartCoroutine(DestroyObject());
+    }
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<Player>().GetHit(1,gameObject);
+            PoolManager.Instance.Push(this);
+        }
     }
 }

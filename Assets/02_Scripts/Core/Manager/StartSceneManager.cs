@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class StartSceneManager : SceneManagerParent
 {
+    private void Awake() 
+    {
+        LoadSceneAdditive("OptionScene");
+    }
     
 }

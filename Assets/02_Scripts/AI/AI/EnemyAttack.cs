@@ -11,6 +11,8 @@ public abstract class EnemyAttack : MonoBehaviour
     [SerializeField]
     protected GameObject _playerHitText;
 
+    protected AIMovementData _aiMovementData;
+
     [SerializeField] protected float _attackDelay;
     public float AttackDelay
     {
@@ -36,6 +38,7 @@ public abstract class EnemyAttack : MonoBehaviour
     {
         _enemyAIBrain = GetComponent<EnemyAIBrain>();
         _attackDelay = _enemyAIBrain.EnemyDataSo.attackDelay;
+        _aiMovementData = GetComponentInChildren<AIMovementData>();
     }
 
     public abstract void Attack(int damage);

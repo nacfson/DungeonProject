@@ -77,12 +77,6 @@ public class Player : MonoBehaviour, IHittable, IAgent
     /// object (2D physics only).
     /// </summary>
     /// <param name="other">The other Collider2D involved in this collision.</param>
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("EnemyBullet"))
-        {
-            Health -= 1;
-        }
-    }
+
 
 }

@@ -19,12 +19,13 @@ public class SpawnerParent : MonoBehaviour
     }
     public void Start3Spawn()
     {
-        int enemy1Count = 5;
-        int enemy2Count = 3;
+        int enemy1Count = 4;
+        int enemy2Count = 2;
+        int enemy3Count = 3;
         float spawnDelay = 1.5f;
         foreach(EnemySpawn em in spawner)
         {
-            em.Faze(enemy1Count,enemy2Count,spawnDelay);
+            em.Faze2(enemy1Count,enemy2Count,enemy3Count,spawnDelay);
         }
     }
     

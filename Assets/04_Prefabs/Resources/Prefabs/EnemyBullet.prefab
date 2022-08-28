@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5958977562673148510}
   - component: {fileID: 392806110052293258}
   - component: {fileID: 8701064127611126127}
-  - component: {fileID: 2754588427052590433}
   - component: {fileID: 3520949347292280748}
   - component: {fileID: 2091388636476720833}
-  m_Layer: 0
+  - component: {fileID: 3590251580523375516}
+  m_Layer: 7
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -108,19 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2754588427052590433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8833874748653207434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 18fda5499cf7c0443a65ab56e379ab0b, type: 2}
 --- !u!50 &3520949347292280748
 Rigidbody2D:
   serializedVersion: 4
@@ -158,3 +145,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3590251580523375516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833874748653207434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127efccfc55d1794cb1a4fb9654c7a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 4ef480508961125439beef5d7f1f971a, type: 2}

@@ -147,7 +147,6 @@ public class WeaponSwap : MonoBehaviour
             WeaponActive();
             _flashLightFeedBack.lightTarget = weaponList[weaponCount].gameObject.transform.Find("Muzzle").GetComponent<Light2D>();
         }
-
     }
 
     private void Update()

@@ -29,6 +29,12 @@ public class EnemySpawn : PoolAbleMono
         StartCoroutine(SpawnEnemy1(0,maxCount,spawnDelay));
         StartCoroutine(SpawnEnemy2(0,maxCount2,spawnDelay));
     }
+    public void Faze2(int maxCount,int maxCount2, int enemy3Count, float spawnDelay)
+    {
+        StartCoroutine(SpawnEnemy1(0,maxCount,spawnDelay));
+        StartCoroutine(SpawnEnemy2(0,maxCount2,spawnDelay));
+        StartCoroutine(SpawnEnemy3(0,enemy3Count,spawnDelay));
+    }
 
     IEnumerator SpawnEnemy1(int minCount, int maxCount, float spawnDelay)
     {
@@ -46,6 +52,16 @@ public class EnemySpawn : PoolAbleMono
         {
             Enemy enemy2 = PoolManager.Instance.Pop("Enemy2")as Enemy;
             enemy2.transform.SetPositionAndRotation(SetSpawnPos(), Quaternion.identity);
+            minCount ++;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+    IEnumerator SpawnEnemy3(int minCount ,int maxCount, float spawnDelay)
+    {
+        while(minCount < maxCount)
+        {
+            Enemy enemy3 = PoolManager.Instance.Pop("Enemy3")as Enemy;
+            enemy3.transform.SetPositionAndRotation(SetSpawnPos(), Quaternion.identity);
             minCount ++;
             yield return new WaitForSeconds(1f);
         }

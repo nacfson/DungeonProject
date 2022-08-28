@@ -8,7 +8,6 @@ public abstract class AIAction : MonoBehaviour
     protected AIActionData _aiActionData;
     protected AIMovementData _aiMovementData;
 
-    private bool _isAttack;
 
     protected EnemyAIBrain _brain;
 

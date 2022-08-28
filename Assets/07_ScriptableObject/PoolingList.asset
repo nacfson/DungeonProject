@@ -20,6 +20,10 @@ MonoBehaviour:
   - prefab: {fileID: -7157745513724292658, guid: f9ab139b4ecb15d40afda6c12a668d68, type: 3}
     poolCount: 4
   - prefab: {fileID: 6624719107999122666, guid: e4fc20ede4921c04f827468428aa1ca3, type: 3}
-    poolCount: 50
+    poolCount: 80
   - prefab: {fileID: 1175101965770260239, guid: 0e31cc8f73015ed47b5fbb96f3ac9f15, type: 3}
+    poolCount: 50
+  - prefab: {fileID: 3590251580523375516, guid: faa269c26b3961042a8f9cd1d784c76e, type: 3}
+    poolCount: 50
+  - prefab: {fileID: 5831029834530146997, guid: 6e9742edfb40538479c6b19a43794a9c, type: 3}
     poolCount: 50
