@@ -23,6 +23,8 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
     }
 
     public bool IsEnemy => true;
+    
+    public GameManager gameManager;
 
     public Vector3 HitPoint {get; private set;}
 
@@ -62,6 +64,7 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
         _enemyAttack.AttackDelay = _enemyDataSO.attackDelay;
         _animator = GetComponentInChildren<Animator>();
         _enemyItemDrop = GetComponent<EnemyItemDrop>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -113,12 +116,12 @@ public class Enemy : PoolAbleMono,IHittable, IAgent
 ///Enemy가 죽었을때 실행되는 프로세스
     public void DeadProcess()
     {
-        _enemyItemDrop.DropItem();
         hp = 0;
         _isDead = true;
         _animator.SetBool("isDead",true);
         _animator.SetBool("isWalk",false);
         _collider.enabled = false;
+        gameManager.Faze5?.Invoke();
     }
     public override void Init()
     {

@@ -3,8 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using static Define;
+using Cinemachine;
+
 public class AgentInput : MonoBehaviour
 {
+    public Camera MainCam
+    {
+        get
+        {
+
+            _mainCam ??= GameObject.Find("Main Camera").GetComponent<Camera>();
+            
+            return _mainCam;
+        }
+    }
+
+    public CinemachineVirtualCamera Vcam
+    {
+        get
+        {
+            _cmVcam ??= GameObject.Find("CM cam").GetComponent<CinemachineVirtualCamera>();
+            return _cmVcam;
+        }
+    }
+    private Camera _mainCam= null;
+    private CinemachineVirtualCamera _cmVcam = null;
     [SerializeField] private float moveSpeed = 3f;
     public UnityEvent<Vector2> OnMovementKeyExpress;
     public UnityEvent<Vector2> OnMousePosChanged;
@@ -32,7 +55,7 @@ public class AgentInput : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
-        Vector2 mouseInWordPos = Define.MainCam.ScreenToWorldPoint(mousePos);
+        Vector2 mouseInWordPos = MainCam.ScreenToWorldPoint(mousePos);
         OnMousePosChanged?.Invoke(mouseInWordPos);
     }
 

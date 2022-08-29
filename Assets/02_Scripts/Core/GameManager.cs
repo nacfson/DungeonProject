@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _boss;
     public Transform Player { get => _player; }
     [SerializeField]
     private Transform _player;
@@ -20,13 +22,20 @@ public class GameManager : MonoBehaviour
     public UnityEvent Faze4;
     public UnityEvent Faze5;
 
-
+    public void BossSpawn()
+    {
+        Instantiate(_boss, new Vector3(0,0,0),Quaternion.identity);
+    }
     public Player player;
+    void OnEnable(){
+        PoolManager.Instance = new PoolManager(transform);
+        CreatePool();
+
+    }
     private void Awake()
     {
         mobCount = 0;
-        PoolManager.Instance = new PoolManager(transform);
-        CreatePool();
+
         StartCoroutine(CheckMobCount2());
     }
     private void CreatePool()

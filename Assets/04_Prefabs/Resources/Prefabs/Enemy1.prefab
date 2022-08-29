@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: -8251305033583076315}
   m_Layer: 3
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -819,7 +819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6624719107999122666}
-  criticalRange: 0
 --- !u!70 &6624719107999122665
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

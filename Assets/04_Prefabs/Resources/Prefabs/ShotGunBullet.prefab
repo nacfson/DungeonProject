@@ -73,12 +73,12 @@ GameObject:
   - component: {fileID: 3865957237829629313}
   - component: {fileID: 4276202908702785149}
   - component: {fileID: 2306883601917991061}
-  - component: {fileID: 2675810797380991537}
   - component: {fileID: 9016515020916510178}
   - component: {fileID: 7186191918270007501}
+  - component: {fileID: 5544508845761262054}
   m_Layer: 0
   m_Name: ShotGunBullet
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,19 +171,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2675810797380991537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3373762867866279208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &9016515020916510178
 Rigidbody2D:
   serializedVersion: 4
@@ -221,6 +208,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5544508845761262054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373762867866279208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &3643864555512053422
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,12 +263,12 @@ GameObject:
   - component: {fileID: 728135682982224547}
   - component: {fileID: 7035905942975489514}
   - component: {fileID: 4073343552079672808}
-  - component: {fileID: 5210117868232982542}
   - component: {fileID: 5050462306103971050}
   - component: {fileID: 4814690937843220098}
+  - component: {fileID: 8281382891058321400}
   m_Layer: 0
   m_Name: ShotGunBullet (1)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,19 +361,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5210117868232982542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3755195813793059561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &5050462306103971050
 Rigidbody2D:
   serializedVersion: 4
@@ -411,6 +398,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &8281382891058321400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755195813793059561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &3826735740666170121
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,12 +422,12 @@ GameObject:
   - component: {fileID: 76773182375275423}
   - component: {fileID: 1759256836520892482}
   - component: {fileID: 2166500901524846745}
-  - component: {fileID: 2974278219401190506}
   - component: {fileID: 2573576712092483069}
   - component: {fileID: 4735149046536028456}
+  - component: {fileID: 2201021812582095476}
   m_Layer: 0
   m_Name: ShotGunBullet (8)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,19 +520,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2974278219401190506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3826735740666170121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &2573576712092483069
 Rigidbody2D:
   serializedVersion: 4
@@ -570,6 +557,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2201021812582095476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826735740666170121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &3843176209336939507
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,12 +612,12 @@ GameObject:
   - component: {fileID: 73428103855987018}
   - component: {fileID: 5942661543525129086}
   - component: {fileID: 1576387818093537313}
-  - component: {fileID: 4845891568443168969}
   - component: {fileID: 7154320607869749784}
   - component: {fileID: 5391721581935410293}
+  - component: {fileID: 448028709053707855}
   m_Layer: 0
   m_Name: ShotGunBullet (7)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,19 +710,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4845891568443168969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4118750934140281531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &7154320607869749784
 Rigidbody2D:
   serializedVersion: 4
@@ -760,6 +747,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &448028709053707855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118750934140281531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &4491877356075446124
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,12 +802,12 @@ GameObject:
   - component: {fileID: 6879190566810314995}
   - component: {fileID: 7053260512548854170}
   - component: {fileID: 2274203662074367708}
-  - component: {fileID: 71826017489152941}
   - component: {fileID: 126049292367584492}
   - component: {fileID: 2787717519292612139}
+  - component: {fileID: 162833369271354105}
   m_Layer: 0
   m_Name: ShotGunBullet (2)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,19 +900,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &71826017489152941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4603907112271826090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &126049292367584492
 Rigidbody2D:
   serializedVersion: 4
@@ -950,6 +937,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &162833369271354105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603907112271826090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &5553193291483762537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,12 +1023,12 @@ GameObject:
   - component: {fileID: 5703323521668965383}
   - component: {fileID: 3631372390073381448}
   - component: {fileID: 1194380889407684702}
-  - component: {fileID: 2636863013490691161}
   - component: {fileID: 2466743008232996443}
   - component: {fileID: 3547938838025901481}
+  - component: {fileID: 7666900787979054696}
   m_Layer: 0
   m_Name: ShotGunBullet (9)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,19 +1121,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2636863013490691161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5853812381126964141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &2466743008232996443
 Rigidbody2D:
   serializedVersion: 4
@@ -1171,6 +1158,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7666900787979054696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853812381126964141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &6137298045404090637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,12 +1182,12 @@ GameObject:
   - component: {fileID: 6008720470698852750}
   - component: {fileID: 1082652488205416615}
   - component: {fileID: 7465954637028858019}
-  - component: {fileID: 2028623124710848216}
   - component: {fileID: 6855004853161445855}
   - component: {fileID: 1344397234947409938}
+  - component: {fileID: 3856670330099145956}
   m_Layer: 0
   m_Name: ShotGunBullet (3)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,19 +1280,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2028623124710848216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6137298045404090637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &6855004853161445855
 Rigidbody2D:
   serializedVersion: 4
@@ -1330,6 +1317,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3856670330099145956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137298045404090637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &6245086090260515564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ GameObject:
   - component: {fileID: -7157745513724292658}
   m_Layer: 0
   m_Name: ShotGunBullet
-  m_TagString: Untagged
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1427,12 +1427,12 @@ GameObject:
   - component: {fileID: 5886746749511342679}
   - component: {fileID: 2205847129911785480}
   - component: {fileID: 5853574678704961274}
-  - component: {fileID: 7312682472039751145}
   - component: {fileID: 8985651260254671548}
   - component: {fileID: 2894329428774723966}
+  - component: {fileID: 973706723147964019}
   m_Layer: 0
   m_Name: ShotGunBullet (5)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1525,19 +1525,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7312682472039751145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340998668520189168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &8985651260254671548
 Rigidbody2D:
   serializedVersion: 4
@@ -1575,6 +1562,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &973706723147964019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340998668520189168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &6560076514582635226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,12 +1617,12 @@ GameObject:
   - component: {fileID: 8407400770198729783}
   - component: {fileID: 7215961420283601510}
   - component: {fileID: 896155548156673743}
-  - component: {fileID: 5965901456795927977}
   - component: {fileID: 6599649466583998018}
   - component: {fileID: 4182452894176749466}
+  - component: {fileID: 5155888100663598827}
   m_Layer: 0
   m_Name: ShotGunBullet (4)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1715,19 +1715,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5965901456795927977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7514424521165694369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &6599649466583998018
 Rigidbody2D:
   serializedVersion: 4
@@ -1765,6 +1752,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5155888100663598827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514424521165694369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &7783508149026309953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,12 +1776,12 @@ GameObject:
   - component: {fileID: 748526184727009145}
   - component: {fileID: 2984822026024211954}
   - component: {fileID: 1367060955405699851}
-  - component: {fileID: 7050705507817990721}
   - component: {fileID: 5618278511225615150}
   - component: {fileID: 6249770270452367302}
+  - component: {fileID: 694627744671788858}
   m_Layer: 0
   m_Name: ShotGunBullet (10)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1874,19 +1874,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7050705507817990721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783508149026309953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &5618278511225615150
 Rigidbody2D:
   serializedVersion: 4
@@ -1924,6 +1911,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &694627744671788858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783508149026309953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &8546012790981884448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,12 +1935,12 @@ GameObject:
   - component: {fileID: 7032311824444641938}
   - component: {fileID: 5738947293949267846}
   - component: {fileID: 546004029375070311}
-  - component: {fileID: 8154278137908958303}
   - component: {fileID: 8653726333756282716}
   - component: {fileID: 8461411614623757590}
+  - component: {fileID: 4080923314716658459}
   m_Layer: 0
   m_Name: ShotGunBullet (6)
-  m_TagString: Bullet
+  m_TagString: ShotGunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2033,19 +2033,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8154278137908958303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8546012790981884448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482768064c35d6d4b9a7f65c8b5ae65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!50 &8653726333756282716
 Rigidbody2D:
   serializedVersion: 4
@@ -2083,6 +2070,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4080923314716658459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546012790981884448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84ebac05ffab04488ade40e0106a805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletDataSO: {fileID: 11400000, guid: 385fac4ee9cf19741aa5ac06f14dc786, type: 2}
 --- !u!1 &8859911319987563179
 GameObject:
   m_ObjectHideFlags: 0

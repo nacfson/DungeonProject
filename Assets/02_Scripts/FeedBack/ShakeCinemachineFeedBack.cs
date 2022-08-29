@@ -5,6 +5,26 @@ using Cinemachine;
 
 public class ShakeCinemachineFeedBack : FeedBack
 {
+    public Camera MainCam
+    {
+        get
+        {
+
+            _mainCam ??= GameObject.Find("Main Camera").GetComponent<Camera>();
+            
+            return _mainCam;
+        }
+    }
+
+    public CinemachineVirtualCamera Vcam
+    {
+        get
+        {
+            _cmVcam ??= GameObject.Find("CM cam").GetComponent<CinemachineVirtualCamera>();
+            return _cmVcam;
+        }
+    }
+    private Camera _mainCam= null;
     [SerializeField] private CinemachineVirtualCamera _cmVcam;
     [SerializeField]
     [Range(0, 5f)]

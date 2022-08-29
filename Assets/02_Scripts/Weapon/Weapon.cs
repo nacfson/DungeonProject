@@ -116,14 +116,14 @@ public class Weapon : MonoBehaviour
 
     public void ShootBullet(string bulletName)
     {
-
         _weaponAudio.PlayShootSound();
         Vector2 pos = new Vector2(transform.position.x,transform.position.y);
         PoolAbleMono obj = PoolManager.Instance.Pop(bulletName);
-        //GameObject obj  = Instantiate(_bullet, pos, Quaternion.identity);
         obj.transform.rotation = transform.rotation;
         obj.transform.position = _muzzle.transform.position;
         obj.transform.SetParent(null);
+        
+
         weaponSwap.UseAmmo();
 
 

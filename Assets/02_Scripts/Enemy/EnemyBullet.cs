@@ -36,6 +36,10 @@ public class EnemyBullet : PoolAbleMono
     {
         StartCoroutine(DestroyObject());
     }
+    public void Start()
+    {
+        PushObject();
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {

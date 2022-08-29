@@ -31,6 +31,10 @@ public class EnemyCollision : MonoBehaviour
                 BulletCheck(col);
                 StartCoroutine(ChangeColorCoroutine());
                 break;
+            case "ShotGunBullet":
+                ShotGunBulletCheck(col);
+                StartCoroutine(ChangeColorCoroutine());
+                break;
 
 
         }
@@ -68,7 +72,32 @@ public class EnemyCollision : MonoBehaviour
         PopupText obj = Instantiate(popupText) as PopupText;
         obj?.Setup(bul.BulletDataSO.damage,transform.position
          + new Vector3(0,0.3f), _isCritical);
-        Debug.Log(enemy.hp);
-        col.gameObject.SetActive(false);
+    }
+    private void ShotGunBulletCheck(Collider2D col)
+    {
+        bool _isCritical;
+        if(RandomCritical() > 7f)
+        {
+            _isCritical = true;
+        }
+        else
+        {
+            _isCritical = false;
+        }
+        
+        ShotGunBullet bul = col.gameObject.GetComponent<ShotGunBullet>();
+        if(_isCritical == true)
+        {
+            enemy.hp -= bul.BulletDataSO.damage * 2;
+        }
+        else
+        {
+            enemy.hp -= bul.BulletDataSO.damage;
+        }
+        enemy.GetHit(bul.BulletDataSO.damage,gameObject);
+        PopupText popupText = enemy.popupText.GetComponent<PopupText>();
+        PopupText obj = Instantiate(popupText) as PopupText;
+        obj?.Setup(bul.BulletDataSO.damage,transform.position
+         + new Vector3(0,0.3f), _isCritical);
     }
 }

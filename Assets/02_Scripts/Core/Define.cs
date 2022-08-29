@@ -9,10 +9,9 @@ public class Define
     {
         get
         {
-            if(_mainCam == null)
-            {
-                _mainCam = Camera.main;
-            }
+
+            _mainCam ??= GameObject.Find("Main Camera").GetComponent<Camera>();
+            
             return _mainCam;
         }
     }
@@ -21,7 +20,7 @@ public class Define
     {
         get
         {
-            _cmVcam ??= GameObject.FindObjectOfType<CinemachineVirtualCamera>();
+            _cmVcam ??= GameObject.Find("CM cam").GetComponent<CinemachineVirtualCamera>();
             return _cmVcam;
         }
     }

@@ -8,6 +8,9 @@ TagManager:
   - FxTemporaire
   - HealItem
   - EnemyBullet
+  - Boss
+  - Enemy
+  - ShotGunBullet
   layers:
   - Default
   - TransparentFX
